@@ -1,0 +1,16 @@
+Zone NavigatorMetronome
+// ===========================================
+// BUTTONS AND SCROLL
+// ===========================================
+    Prev                Reaper 42457    // Options: Set metronome speed to 2x
+    Next                Reaper 42458    // Options: Set metronome speed to 4x
+    Shift+Prev          NoAction
+    Shift+Next          NoAction
+    ScrollLeft          Reaper _S&M_METRO_VOL_DOWN // SWS/S&M: Decrease metronome volume
+    ScrollRight         Reaper _S&M_METRO_VOL_UP   // SWS/S&M: Increase metronome volume
+    Shift+ScrollLeft    NoAction
+    Shift+ScrollRight   NoAction
+
+    RotaryBigPush       Reaper 42456    // Options: Set metronome speed to 1x
+    RotaryBig           NoAction
+ZoneEnd 

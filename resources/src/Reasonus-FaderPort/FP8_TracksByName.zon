@@ -1,0 +1,54 @@
+Zone "TracksByName"
+  ScribbleLine1_1     NoAction
+  ScribbleLine2_1     FixedTextDisplay "Show only"
+  ScribbleLine3_1     FixedTextDisplay "Drum"
+  ScribbleLine4_1     FixedTextDisplay "Tracks"
+  Select1             Reaper _RS3a5c2f1cdc51effb0dffec0022b0ad328ae00167 { 20 0 0 20 0 0 } // Show all Drum tracks
+  Select1             GoZone "Home"
+
+  ScribbleLine1_2     NoAction
+  ScribbleLine2_2     FixedTextDisplay "Show only"
+  ScribbleLine3_2     FixedTextDisplay "Bass"
+  ScribbleLine4_2     FixedTextDisplay "Tracks"
+  Select2             Reaper _RS77c8d830a3db2855fbb84a12442d80ec01d38a89 { 20 20 0 20 20 0 } // Show all Bass tracks
+  Select2             GoZone "Home"
+
+  ScribbleLine1_3     NoAction
+  ScribbleLine2_3     FixedTextDisplay "Show only"
+  ScribbleLine3_3     FixedTextDisplay "Guitar"
+  ScribbleLine4_3     FixedTextDisplay "Tracks"
+  Select3             Reaper _RS1417f16413338fec41d19db088d0d932eba0e1ee { 0 20 0 0 20 0 } // Show all Guitar tracks
+  Select3             GoZone "Home"
+
+  ScribbleLine1_4     NoAction
+  ScribbleLine2_4     FixedTextDisplay "Show only"
+  ScribbleLine3_4     FixedTextDisplay "Key"
+  ScribbleLine4_4     FixedTextDisplay "Tracks"
+  Select4             Reaper _RS2d4e96f4424902ca5d3201a33f9e7c81e63e25c5 { 5 20 10 5 20 10 } // Show all Key tracks
+  Select4             GoZone "Home"
+
+  ScribbleLine1_5     NoAction
+  ScribbleLine2_5     FixedTextDisplay "Show only"
+  ScribbleLine3_5     FixedTextDisplay "Vocal"
+  ScribbleLine4_5     FixedTextDisplay "Tracks"
+  Select5             Reaper _RS19389cc53dc536ca74dba8358d3f3c8f8e0de3fb { 5 0 20 5 0 20 } // Show all Vocal tracks
+  Select5             GoZone "Home"
+
+  ScribbleLine1_6     NoAction
+  ScribbleLine2_6     NoAction
+  ScribbleLine3_6     NoAction
+  ScribbleLine4_6     NoAction
+  Select6             NoAction
+
+  ScribbleLine1_7     NoAction
+  ScribbleLine2_7     NoAction
+  ScribbleLine3_7     NoAction
+  ScribbleLine4_7     NoAction
+  Select7             NoAction
+
+  ScribbleLine1_8     NoAction
+  ScribbleLine2_8     NoAction
+  ScribbleLine3_8     NoAction
+  ScribbleLine4_8     NoAction
+  Select8             NoAction
+ZoneEnd 
