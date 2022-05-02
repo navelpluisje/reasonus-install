@@ -8,6 +8,9 @@ on:
       - v*
   pull_request:
 
+permissions:
+  contents: write
+
 jobs:
   # test:
   #   name: Test (${{ matrix.os }} - ${{ matrix.arch }})
@@ -89,8 +92,6 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
-        permissions:
-          contents: write
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
