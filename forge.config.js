@@ -1,10 +1,19 @@
 module.exports = {
   makers: [
     {
-      config: {
+      config: (arch) => ({
+        authors: 'Electron Community',
+        certificateFile: process.env.WINDOWS_CODESIGN_FILE,
+        certificatePassword: process.env.WINDOWS_CODESIGN_PASSWORD,
+        exe: 'electron-fiddle.exe',
+        // iconUrl:
+        //     'https://raw.githubusercontent.com/electron/fiddle/0119f0ce697f5ff7dec4fe51f17620c78cfd488b/assets/icons/fiddle.ico',
+        // loadingGif: './assets/loading.gif',
         name: 'reasonus_install',
-      },
-      name: '@electron-forge/maker-squirrel',
+        noMsi: true,
+        setupExe: `reasonus-install-win32-${arch}-setup.exe`,
+        // setupIcon: path.resolve(iconDir, 'fiddle.ico'),
+      }),     
     },
     {
       config: {
