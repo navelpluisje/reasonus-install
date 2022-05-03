@@ -13,7 +13,9 @@ module.exports = {
         noMsi: true,
         setupExe: `reasonus-install-win32-${arch}-setup.exe`,
         // setupIcon: path.resolve(iconDir, 'fiddle.ico'),
-      }),     
+      }),
+      name: '@electron-forge/maker-squirrel',
+      platforms: ['win32'],     
     },
     {
       config: {
