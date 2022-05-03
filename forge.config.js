@@ -5,7 +5,7 @@ module.exports = {
         authors: 'Electron Community',
         certificateFile: process.env.WINDOWS_CODESIGN_FILE,
         certificatePassword: process.env.WINDOWS_CODESIGN_PASSWORD,
-        exe: 'electron-fiddle.exe',
+        exe: 'reasonus-install.exe',
         // iconUrl:
         //     'https://raw.githubusercontent.com/electron/fiddle/0119f0ce697f5ff7dec4fe51f17620c78cfd488b/assets/icons/fiddle.ico',
         // loadingGif: './assets/loading.gif',
