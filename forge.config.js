@@ -5,9 +5,7 @@ module.exports = {
   makers: [
     {
       config: (arch) => ({
-        authors: 'Navelpluisjes',
-        certificateFile: process.env.WINDOWS_CODESIGN_FILE,
-        certificatePassword: process.env.WINDOWS_CODESIGN_PASSWORD,
+        authors: 'Navelpluisje',
         exe: 'reasonus-faderport.exe',
         iconUrl:
             'https://raw.githubusercontent.com/navelpluisje/reasonus-install/main/assets/app-icon.ico',
@@ -55,9 +53,7 @@ module.exports = {
   packagerConfig: {
     asar: true,
     executableName: 'reasonus-faderport',
-    icon: path.resolve(
-      __dirname, 'assets', 'icons', 'fiddle',
-    ),
+    icon: path.resolve(__dirname, 'assets', 'icons'),
     name: 'ReaSonus FaderPort',
     protocols: [
       {
