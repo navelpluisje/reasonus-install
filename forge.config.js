@@ -1,18 +1,20 @@
+import path from 'path';
+
 module.exports = {
   makers: [
     {
       config: (arch) => ({
-        authors: 'Electron Community',
+        authors: 'Navelpluisjes',
         certificateFile: process.env.WINDOWS_CODESIGN_FILE,
         certificatePassword: process.env.WINDOWS_CODESIGN_PASSWORD,
-        exe: 'reasonus-install.exe',
+        exe: 'reasonus-faderport.exe',
         // iconUrl:
         //     'https://raw.githubusercontent.com/electron/fiddle/0119f0ce697f5ff7dec4fe51f17620c78cfd488b/assets/icons/fiddle.ico',
         // loadingGif: './assets/loading.gif',
-        name: 'reasonus_install',
+        name: 'reasonus_faderport',
         noMsi: true,
-        setupExe: `reasonus-install-win32-${arch}-setup.exe`,
-        // setupIcon: path.resolve(iconDir, 'fiddle.ico'),
+        setupExe: `reasonus-faderport-win32-${arch}-setup.exe`,
+        setupIcon: path.resolve(__dirname, 'assets', 'app-icon.ico'),
       }),
       name: '@electron-forge/maker-squirrel',
       platforms: ['win32'],     
@@ -27,9 +29,9 @@ module.exports = {
             },
           },
         },
-        background: './assets/dmg-background.png',
+        background: path.resolve(__dirname, 'assets', 'dmg-background.png'),
         format: 'ULFO',
-        icon: './assets/app-icon.icns',
+        icon: path.resolve(__dirname, 'assets', 'app-icon.icns'),
         name: 'ReaSonus',
       },
       name: '@electron-forge/maker-dmg',
@@ -37,7 +39,7 @@ module.exports = {
     {
       name: '@electron-forge/maker-zip',
       platforms: [
-        'darwin', 'win32', 'linux',
+        'darwin',
       ],
     },
     {
@@ -49,7 +51,32 @@ module.exports = {
       name: '@electron-forge/maker-rpm',
     },
   ],
-  packagerConfig: {},  
+  packagerConfig: {
+    asar: true,
+    executableName: 'reasonus-faderporter',
+    icon: path.resolve(
+      __dirname, 'assets', 'icons', 'fiddle',
+    ),
+    name: 'ReaSonus FaderPort',
+    osxSign: {
+      'entitlements': 'static/entitlements.plist',
+      'entitlements-inherit': 'static/entitlements.plist',
+      'gatekeeper-assess': false,
+      'hardenedRuntime': true,
+      'identity': 'Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)',
+      'signature-flags': 'library',
+    },
+    protocols: [
+      {
+        name: 'Electron Fiddle Launch Protocol',
+        schemes: ['electron-fiddle'],
+      },
+    ],
+    win32metadata: {
+      CompanyName: 'Navelpluisje',
+      OriginalFilename: 'ReaSonus FaderPort',
+    },
+  },  
   plugins: [
     [
       '@electron-forge/plugin-webpack',
