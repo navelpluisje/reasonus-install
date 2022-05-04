@@ -52,7 +52,7 @@ jobs:
           - os: macOS-latest
             arch: universal
           - os: windows-latest
-            arch: ia32
+            arch: x64
     steps:
       - uses: actions/checkout@v3
       - name: Setup Node.js
