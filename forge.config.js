@@ -53,9 +53,7 @@ module.exports = {
   packagerConfig: {
     asar: true,
     executableName: 'reasonus-faderport',
-    icon: path.resolve(
-      __dirname, 'assets', 'icons', 'app-icon',
-    ),
+    icon: path.resolve(__dirname, 'assets',  'app-icon'),
     name: 'ReaSonus FaderPort',
     protocols: [
       {
