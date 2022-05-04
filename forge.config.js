@@ -8,8 +8,8 @@ module.exports = {
         certificateFile: process.env.WINDOWS_CODESIGN_FILE,
         certificatePassword: process.env.WINDOWS_CODESIGN_PASSWORD,
         exe: 'reasonus-faderport.exe',
-        // iconUrl:
-        //     'https://raw.githubusercontent.com/electron/fiddle/0119f0ce697f5ff7dec4fe51f17620c78cfd488b/assets/icons/fiddle.ico',
+        iconUrl:
+            'https://raw.githubusercontent.com/navelpluisje/reasonus-install/main/assets/app-icon.ico',
         // loadingGif: './assets/loading.gif',
         name: 'reasonus_faderport',
         noMsi: true,
@@ -53,23 +53,15 @@ module.exports = {
   ],
   packagerConfig: {
     asar: true,
-    executableName: 'reasonus-faderporter',
+    executableName: 'reasonus-faderport',
     icon: path.resolve(
       __dirname, 'assets', 'icons', 'fiddle',
     ),
     name: 'ReaSonus FaderPort',
-    osxSign: {
-      'entitlements': 'static/entitlements.plist',
-      'entitlements-inherit': 'static/entitlements.plist',
-      'gatekeeper-assess': false,
-      'hardenedRuntime': true,
-      'identity': 'Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)',
-      'signature-flags': 'library',
-    },
     protocols: [
       {
-        name: 'Electron Fiddle Launch Protocol',
-        schemes: ['electron-fiddle'],
+        name: 'ReaSonus FaderPort Launch Protocol',
+        schemes: ['reasonus-faderport'],
       },
     ],
     win32metadata: {
