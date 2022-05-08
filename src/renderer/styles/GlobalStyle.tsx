@@ -30,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.4;
     text-shadow: 0 .25rem .25rem rgba(0, 0, 0, 0.25);
     
-    &:not(code) {
+    &:not(code):not(pre) {
       font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
   }
@@ -38,6 +38,10 @@ export const GlobalStyle = createGlobalStyle`
   h2 {
     font-size: 1.5rem;
     font-weight: 300;
+  }
+
+  li {
+    margin-bottom: .5rem;
   }
 
  #app {

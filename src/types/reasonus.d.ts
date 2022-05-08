@@ -13,7 +13,7 @@ export declare global {
       goToExternal: (url: string) => Promise<void>
       getOS: () => Promise<NodeJS.Platform>
       setReaperPath: (path: string) => Promise<void>,
-
+      copyToClipboard: (text: string) => Promise<viod>
     };
 	}
 }

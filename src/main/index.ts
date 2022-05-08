@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, shell } from 'electron';
+import { app, BrowserWindow, clipboard, ipcMain, shell } from 'electron';
 import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer';
 import os from 'os';
 import path from 'path';
@@ -75,6 +75,7 @@ ipcMain.handle('settings:getDummyAction', () => settings.get('dummyAction'));
 ipcMain.handle('settings:getFunctionActions', () => settings.get('functionActions'));
 
 ipcMain.handle('globale:getOS', () => os.platform());
+ipcMain.handle('globale:copyToClipboard', (_, text: string) => clipboard.writeText(text));
 
 ipcMain.handle('navigate:goTo', (_, url: string) => shell.openExternal(url));
 
