@@ -11,7 +11,7 @@ export const installCSI = () => {
   const newLine = os.platform() === 'win32' ? '\r\n' : '\n';
   const reaperPath = settings.get('reaperPath') as string;
 
-  const srcDir = path.join(__dirname, 'resources', 'CSI');
+  const srcDir = path.join(__dirname, 'resources', 'Csurf');
   const pluginDir = path.join(reaperPath, 'UserPlugins');
   const iniDir = path.join(reaperPath, 'CSI');
 

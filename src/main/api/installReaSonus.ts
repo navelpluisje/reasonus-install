@@ -1,6 +1,4 @@
-import download from 'download';
 import fs from 'fs';
-import os from 'os';
 import path from 'path';
 
 import { copyFile } from '../../utils/copyFile';
@@ -33,26 +31,10 @@ const faderPortZoneFiles = [
 
 export const installReasonus = (actionId: string) => {
   const reaperPath = settings.get('reaperPath') as string;
-  // try {
-  //   await download('http://erwin-en-marit.nl/src.zip', 
-  //     path.join(__dirname, 'resourceses'),
-  //     {
-  //       extract: true,
-  //     });
-  //   console.log('Downloaded resources');
-  // } catch (e) {
-  //   console.log('Error while downloading', e);
-  // }
-
-  // if (os.platform() === 'darwin' && fs.existsSync(path.join(__dirname, 'resources', '__MACOSX'))) {
-  //   fs.rmdirSync(path.join(__dirname, 'resources', '__MACOSX'), {
-  //     recursive: true,
-  //   });
-  // }
 
   // Copy the surface file
   copyFile(path.join(
-    __dirname, 'resources', 'src', 'Surfaces', 'Midi',
+    __dirname, 'resources', 'CSI', 'Surfaces', 'Midi',
   ),
   path.join(
     reaperPath, 'CSI', 'Surfaces', 'Midi',
@@ -62,7 +44,7 @@ export const installReasonus = (actionId: string) => {
   // Modify the files with the always on action
   for (const zoneFile of faderPortZoneFiles) {
     const fileName = path.join(
-      __dirname, 'resources', 'src', 'Zones', 'Reasonus-FaderPort', zoneFile,
+      __dirname, 'resources', 'CSI', 'Zones', 'Reasonus-FaderPort', zoneFile,
     );
     if (!fs.existsSync(fileName)) {
       continue;

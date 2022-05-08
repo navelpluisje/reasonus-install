@@ -23,14 +23,14 @@ module.exports = {
     path: path.resolve(__dirname, '../.webpack', 'main'),
   },
   plugins: [
-    new CopyWebpackPlugin({patterns: [
-      {
-        from: path.resolve(__dirname, '../resources' ),
-        to: path.resolve(
-          __dirname, '../.webpack', 'main',  'resources',
-        ),
-      },
-    ]}),
+    // new CopyWebpackPlugin({patterns: [
+    //   {
+    //     from: path.resolve(__dirname, '../resources' ),
+    //     to: path.resolve(
+    //       __dirname, '../.webpack', 'main',  'resources',
+    //     ),
+    //   },
+    // ]}),
 
   ],
   resolve: {

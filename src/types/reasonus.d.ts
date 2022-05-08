@@ -14,6 +14,7 @@ export declare global {
       getOS: () => Promise<NodeJS.Platform>
       setReaperPath: (path: string) => Promise<void>,
       copyToClipboard: (text: string) => Promise<viod>
+      downloadFiles: () => Promise<viod>
     };
 	}
 }

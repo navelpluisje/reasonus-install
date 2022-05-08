@@ -5,6 +5,7 @@ import { FunctionActions } from '../types';
 contextBridge.exposeInMainWorld('reasonusAPI', {
   copyBaseActions: () => ipcRenderer.invoke('reasonus:copyBaseActions'),
   copyToClipboard: (text: string) => ipcRenderer.invoke('globale:copyToClipboard', text),
+  downloadFiles: () => ipcRenderer.invoke('globale:downloadFiled' ),
   getDummyAction: () => ipcRenderer.invoke('settings:getDummyAction'),
   getFunctionActions: () => ipcRenderer.invoke('settings:getFunctionActions'),
   getOS: () => ipcRenderer.invoke('globale:getOS'),

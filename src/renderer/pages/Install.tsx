@@ -13,6 +13,7 @@ export const Install = () => {
 
   useEffect(() => {
     const getActionId = async () => {
+      await window.reasonusAPI.downloadFiles();
       const id = await window.reasonusAPI.getDummyAction();
       if (id) {
         setDone(true);

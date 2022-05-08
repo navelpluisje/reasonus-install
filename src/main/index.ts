@@ -7,6 +7,7 @@ import { FunctionActions } from '../types';
 import { isDev } from '../utils/isDev';
 import { settings } from '../utils/settings';
 import { copyBaseActions } from './api/copyBaseActions';
+import { downloadFiles } from './api/downloadFiles';
 import { getFunctionActions } from './api/getFunctionActions';
 import { getReaperDirectory } from './api/getReaperDirectory';
 import { installCSI } from './api/installCSI';
@@ -76,6 +77,7 @@ ipcMain.handle('settings:getFunctionActions', () => settings.get('functionAction
 
 ipcMain.handle('globale:getOS', () => os.platform());
 ipcMain.handle('globale:copyToClipboard', (_, text: string) => clipboard.writeText(text));
+ipcMain.handle('globale:downloadFiled', downloadFiles);
 
 ipcMain.handle('navigate:goTo', (_, url: string) => shell.openExternal(url));
 
