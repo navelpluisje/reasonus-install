@@ -1,0 +1,14 @@
+Zone "VSTi: Loopcloud Play (Loopmasters)"
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Remote 1 Amount"
+	Fader2			FXParam 1 "Remote 2 Amount"
+	Fader3			FXParam 2 "Remote 3 Amount"
+	Fader4			FXParam 3 "Remote 4 Amount"
+	Fader5			FXParam 4 "Filt Pre Drive"
+	Fader6			FXParam 5 "Filt Cutoff"
+	Fader7			FXParam 6 "Filt Res"
+	Fader8			FXParam 7 "Master Level"
+
+ZoneEnd

@@ -1,0 +1,30 @@
+//------------------------------------------------------------------------------
+// File:    FP8_NavigatorChannel.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    Channel Navigation
+//------------------------------------------------------------------------------
+
+Zone NavigatorChannel
+// ===========================================
+// BUTTONS AND SCROLL
+// ===========================================
+    Prev                Reaper 40286   // Track: Go to previous track
+    Next                Reaper 40285   // Track: Go to next track
+    Shift+Prev          NoAction
+    Shift+Next          NoAction
+    ScrollLeft          Reaper 40286   // Track: Go to previous track
+    ScrollRight         Reaper 40285   // Track: Go to next track
+    Shift+ScrollLeft    Reaper 40288   // Track: Go to previous track (leaving other tracks selected)
+    Shift+ScrollRight   Reaper 40287   // Track: Go to next track (leaving other tracks selected)
+
+    RotaryBigPush       NoAction
+    Shift+RotaryBigPush   NoAction
+    Option+RotaryBigPush  NoAction
+    RotaryBig           NoAction
+
+    Channel             Reaper %dummyAction%    // Dummy Action
+    Shift+Channel       Reaper 40078    //View: Toggle mixer visible
+ZoneEnd

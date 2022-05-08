@@ -1,0 +1,18 @@
+Zone "VST3: TR5 Bus Compressor (IK Multimedia)"
+
+	SelectedTrackNavigator
+
+	Fader1				FXParam 0 "Ratio"
+	Fader1				FXParam 1 "Attack"
+	Fader2				FXParam 2 "Release"
+	Fader3				FXParam 3 "Side Chain Freq"
+	Fader2				FXParam 4 "Threshold"
+	Fader3				FXParam 5 "Make Up"
+	Select1			FXParam 6 "Grit" [ 0.0 1.0 ]
+	Fader4				NoAction
+	Fader5				NoAction
+	Fader6				NoAction
+	Fader7				NoAction
+	Fader8				NoAction
+ZoneEnd
+

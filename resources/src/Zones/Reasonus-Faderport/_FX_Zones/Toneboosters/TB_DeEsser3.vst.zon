@@ -1,0 +1,15 @@
+Zone "VST: TB_DeEsser_v3 (ToneBoosters)"
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Xoverfrq"
+	Fader2			FXParam 1 "Senstvty"
+	Select1		FXParam 2 "Listen" [ 0 1 ]
+	Select2		FXParam 3 "Splitbnd" [ 0 1 ]
+	Fader3			FXParam 4 "Amount"
+	Fader4			FXParam 5 "Attack"
+	Fader5			FXParam 6 "Release"
+	Fader6			FXParam 7 "Link"
+	Fader7			NoAction
+	Fader8			NoAction
+ZoneEnd

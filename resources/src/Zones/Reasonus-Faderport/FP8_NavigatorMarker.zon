@@ -1,0 +1,32 @@
+//------------------------------------------------------------------------------
+// File:    FP8_NavigatorMarker.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    Marker Navigation and management
+//------------------------------------------------------------------------------
+
+Zone NavigatorMarker
+// ===========================================
+// BUTTONS AND SCROLL
+// ===========================================
+    Prev                    Reaper _SWS_SELPREVMORR   // SWS: Goto/select previous marker/region
+    Next                    Reaper _SWS_SELNEXTMORR   // SWS: Goto/select next marker/region
+    Shift+Prev              NoAction
+    Shift+Next              NoAction
+    ScrollLeft              Reaper 41045              // Move edit cursor back one beat
+    ScrollRight             Reaper 41044              // Move edit cursor forward one beat
+    Shift+ScrollLeft        Reaper 40104              // View: Move cursor left one pixel
+    Shift+ScrollRight       Reaper 40105              // View: Move cursor right one pixel
+    Option+ScrollLeft       NoAction
+    Option+ScrollRight      NoAction
+                  
+    RotaryBigPush           Reaper 40157              // Markers: Insert marker at current position
+    Shift+RotaryBigPush     Reaper 40171              // Markers: Insert and/or edit marker at current position
+    Option+RotaryBigPush    Reaper 40613              // Markers: Delete marker near cursor
+    RotaryBig               NoAction
+
+    Marker                  Reaper %dummyAction%    // Dummy Action
+    Shift+Marker            Reaper 41074    // Toggle show all floating windows
+ZoneEnd

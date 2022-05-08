@@ -1,0 +1,27 @@
+Zone "VSTi: CollaB3 (Collab)" CollaB3
+  SelectedTrackNavigator
+
+  Rotary1       FXParam 0  "Volume"
+  RotaryPush2   FXParam 1  "Perc on/off" [ 0.0 1.0 ]
+  RotaryPush3   FXParam 2  "Perc 2/3"    [ 0.0 1.0 ]
+  Rotary4       FXParam 3  "Leakage"
+  RotaryPush4   FXParam 4  "Rotary"      [ 0.0 0.5 1.0 ]
+  RotaryPush5   FXParam 5  "Chorus"      [ 0.0 1.0 ]
+
+  Fader1        FXParam 6  "Drawbar 16"
+  Fader2        FXParam 7  "Drawbar 8"
+  Fader3        FXParam 8  "Drawbar 5 1/3"
+  Fader4        FXParam 9  "Drawbar 4"
+  Fader5        FXParam 10 "Drawbar 2 2/3"
+  Fader6        FXParam 11 "Drawbar 2"
+  Fader7        FXParam 12 "Drawbar 1 3/6"
+  Fader8        FXParam 13 "Drawbar 1 1/3"
+  Option+Fader8 FXParam 14 "Drawbar 1"
+
+/ Rest all the other stuff
+  Rotary5       NoAction
+  Rotary6       NoAction
+  Rotary7       NoAction
+  Rotary8       NoAction
+ZoneEnd
+

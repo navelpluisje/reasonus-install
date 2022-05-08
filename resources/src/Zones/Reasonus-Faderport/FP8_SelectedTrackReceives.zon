@@ -1,0 +1,50 @@
+//------------------------------------------------------------------------------
+// File:    FP8_SelectedTrackReceive.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    MCU style receive handling of the selected track
+//------------------------------------------------------------------------------
+
+Zone "SelectedTrackReceive"
+  SelectedTrackReceiveNavigator
+  
+  ScribbleLine1_|         NoAction
+  ScribbleLine1_1         FixedTextDisplay "Receives"
+  ScribbleLine1_2         TrackNameDisplay
+  ScribbleLine2_|         TrackReceiveNameDisplay
+  ScribbleLine3_|         TrackReceiveVolumeDisplay
+  ScribbleLine4_|         TrackReceivePrePostDisplay
+  Shift+ScribbleLine4_|   TrackReceivePanDisplay
+  ValueBar|               TrackReceivePan
+
+  SoloClear               Reaper "40293"   // Track: View routing and I/O for current/last touched track
+  Solo|                   TrackReceivePrePost
+  Shift+Solo|             TrackReceiveInvertPolarity
+  Mute|                   TrackReceiveMute
+
+  Fader|                  TrackReceiveVolume
+  Shift+Fader|            TrackReceivePan
+  TrackTouch+Fader|       TrackReceiveVolume
+  FaderTouch|             TrackTouch
+
+// ===========================================
+// TRACK NAVIGATION
+// ===========================================
+  Track                   NoAction
+  Track                   GoZone "Home"
+  
+  Plugin                  NoAction
+  Plugin                  MapSelectedTrackFXToMenu
+  Shift+Plugin            MapTrackFXMenusSlotToWidgets
+  
+  Send                    NoAction
+  Send                    MapSelectedTrackSendsToWidgets
+  Shift+Send              MapTrackSendsSlotToWidgets
+
+  Pan                     Reaper %dummyAction%    // Dummy Action
+  Pan                     GoZone "Home"
+  Pan                     MapTrackReceivesSlotToWidgets
+
+ZoneEnd

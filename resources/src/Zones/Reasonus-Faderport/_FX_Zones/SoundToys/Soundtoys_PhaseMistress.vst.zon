@@ -1,0 +1,16 @@
+Zone "VST: PhaseMistress (Soundtoys)"
+
+	SelectedTrackNavigator
+
+	Select8			FXParam 0 "Bypass" [ 0.0 1.0 ]
+	Fader7				FXParam 1 "InputGain"
+	Fader8				FXParam 2 "OutputGain"
+	Fader1				FXParam 3 "Mix"
+	Fader2				FXParam 5 "Frequency"
+	Fader3				FXParam 6 "Resonance"
+	Fader4				FXParam 8 "ModulationDepth"
+	Fader5				FXParam 9 "Style"
+	Fader6				FXParam 12 "LFO Rate"
+	Fader7				NoAction
+	Fader8				NoAction
+ZoneEnd

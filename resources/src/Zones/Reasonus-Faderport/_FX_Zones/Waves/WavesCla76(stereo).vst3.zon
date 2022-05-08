@@ -1,0 +1,11 @@
+Zone "VST3: CLA-76 Stereo (Waves)"
+    SelectedTrackNavigator
+    Fader1             FXParam 2  "Input"
+    Fader2             FXParam 3  "Output"
+    Fader3             FXParam 4  "Attack"
+    Fader4             FXParam 5  "Release"
+    Select5         FXParam 6  "Ratio"     [ 0.0 0.25 0.5 0.75 1.0 ]
+    Select6         FXParam 9  "Meter"     [ 0.0 0.5 1.0 ]
+    Select7         FXParam 7  "Analog"    [ 0.0 0.5 1.0 ]
+    Select8         FXParam 8  "Revision"  [ 0.0 1.0 ]
+ZoneEnd

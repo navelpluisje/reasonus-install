@@ -1,0 +1,12 @@
+Zone "VST3: Filterjam (AudioThing)"
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Frequency"
+	Fader2			FXParam 1 "Emphasis"
+	Fader3			FXParam 2 "Operations"
+	Fader4			FXParam 3 "Gain"
+	Fader8			FXParam 4 "Mix"
+	Fader5			NoAction
+	Fader6			NoAction
+	Fader7			NoAction
+ZoneEnd

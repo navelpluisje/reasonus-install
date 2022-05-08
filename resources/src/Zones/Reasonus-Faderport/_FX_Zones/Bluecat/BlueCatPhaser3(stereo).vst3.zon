@@ -1,0 +1,25 @@
+Zone "VST3: Blue Cat's Phaser 3 (Stereo) (Blue Cat Audio)" "Blue Cat Phaser" 
+  SelectedTrackNavigator
+  Option Option
+
+  Select1    FXParam 0 "ByPass" [ 0.0 1.0 ]
+  Fader1        FXParam 1 "Gain"
+  Fader2        FXParam 5 "Stages"
+  Fader3        FXParam 6 "Depth"
+  Fader4        FXParam 7 "Rate"
+  Fader5        FXParam 9 "Spread"
+  Fader6        FXParam 2 "Dry"
+  Fader7        FXParam 3 "Wet"
+  Fader8        FXParam 4 "FeedBack"
+  Select8    FXParam 8 "Shape"  [ 0.0 1.0 ]
+
+/ Rest all the other stuff    
+  Fader1 NoAction 
+  Fader2 NoAction 
+  Fader3 NoAction 
+  Fader4 NoAction 
+  Fader5 NoAction 
+  Fader6 NoAction 
+  Fader7 NoAction 
+  Fader8 NoAction 
+ZoneEnd

@@ -1,0 +1,21 @@
+Zone "VST3: ValhallaSupermassive (Valhalla DSP, LLC)"
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Mix"
+	Select1		FXParam 0 "Mix" [ 1 ]
+
+	Select2		FXParam 1 "DelaySync" [ 0.25 0.5 0.75 1.0 ]
+	Fader2			FXParam 2 "DelayNote"
+	Fader2			FXParam 3 "Delay_Ms"
+	Fader3			FXParam 4 "DelayWarp"
+	Fader4			FXParam 6 "Feedback"
+	Fader5			FXParam 7 "Density"
+	Fader2			FXParam 8 "Width"
+	Fader8			FXParam 9 "LowCut"
+	Fader7			FXParam 10 "HighCut"
+	Fader5			FXParam 11 "ModRate"
+	Fader6			FXParam 12 "ModDepth"
+	Fader1			FXParam 13 "Mode"
+
+ZoneEnd

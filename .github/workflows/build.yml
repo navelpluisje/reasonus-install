@@ -100,7 +100,6 @@ jobs:
         with:
           draft: true
           files: |
-            out/**/*.deb
             out/**/*.dmg
             out/**/*setup*.exe
             out/**/*.zip

@@ -1,0 +1,34 @@
+//------------------------------------------------------------------------------
+// File:    FP8_NavigatorSection.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    Section Navigation, manage Regions
+//------------------------------------------------------------------------------
+
+Zone NavigatorSection
+// ===========================================
+// BUTTONS AND SCROLL
+// ===========================================
+    Prev                      Reaper _SWS_SELPREVMORR   // SWS: Goto/select previous marker/region
+    Next                      Reaper _SWS_SELNEXTMORR   // SWS: Goto/select next marker/region
+    Shift+Prev                Reaper 40625              // Time selection: Set start point
+    Shift+Next                Reaper 40626              // Time selection: Set end point
+    ScrollLeft                Reaper 41045              // Move edit cursor back one beat
+    ScrollRight               Reaper 41044              // Move edit cursor forward one beat
+    Shift+ScrollLeft          Reaper 40104              // View: Move cursor left one pixel
+    Shift+ScrollRight         Reaper 40105              // View: Move cursor right one pixel
+    Option+ScrollLeft         Reaper 40102              // Time selection: Move cursor left, creating time selection
+    Option+ScrollRight        Reaper 40103              // Time selection: Move cursor left, creating time selection
+
+    RotaryBigPush             Reaper 40616              // Markers: Edit region near cursor
+    Hold+Shift+RotaryBigPush  Reaper 40306              // Markers: Insert region from time selection and edit...
+    Shift+RotaryBigPush       Reaper 41041              // Move edit cursor to start of current measure
+    Option+RotaryBigPush      Reaper 40615              // Markers: Delete region near cursor
+    RotaryBig                 NoAction
+
+    Section                   Reaper %dummyAction%    // Dummy Action
+    Hold+Section              Reaper 40020               // Time selection: Remove (unselect) time selection and loop points 
+    Shift+Section             Reaper 40378               // View: Show big clock window
+ZoneEnd

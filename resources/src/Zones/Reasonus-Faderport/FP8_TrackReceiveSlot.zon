@@ -1,0 +1,62 @@
+//------------------------------------------------------------------------------
+// File:    FP8_TrackReceiveSlot.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    euCon styled receives management
+//------------------------------------------------------------------------------
+
+Zone "TrackReceiveSlot"
+  TrackReceiveSlotNavigator
+
+  ScribbleLine1_|         NoAction
+  ScribbleLine1_1         FixedTextDisplay "Receives"
+  ScribbleLine2_|         TrackNameDisplay
+  ScribbleLine3_|         TrackReceiveNameDisplay
+  ScribbleLine4_|         TrackReceiveVolumeDisplay
+
+  Shift+ScribbleLine1_|   TrackNameDisplay
+  Shift+ScribbleLine2_|   TrackReceiveNameDisplay
+  Shift+ScribbleLine3_|   TrackReceiveVolumeDisplay
+  Shift+ScribbleLine4_|   TrackReceivePrePostDisplay
+
+  ValueBar|               TrackReceivePan
+
+  Select|                 TrackUniqueSelect   { 0 5 20 0 55 255 }
+  Hold+Select|            Reaper 40293 // Track: View routing and I/O for current/last touched track
+
+  Fader|                  TrackReceiveVolume
+  Solo|                   TrackReceivePrePost
+  Shift+Solo|             TrackReceiveInvertPolarity
+  Mute|                   TrackReceiveMute
+  Fader|                  TrackReceiveVolume
+  Shift+Fader|            TrackReceivePan
+
+
+  RotarySmall             NoAction  
+  RotarySmallPush         NoAction
+  ScrollLeftSmall         ReceiveSlotBank "-1"
+  ScrollRightSmall        ReceiveSlotBank "1"
+
+// ===========================================
+// TRACK NAVIGATION
+// ===========================================
+  Track                   NoAction
+  Track                   GoZone "Home"
+
+  Plugin                  NoAction
+  Plugin                  GoZone "Home"
+  Plugin                  MapSelectedTrackFXToMenu
+  Shift+Plugin            MapTrackFXMenusSlotToWidgets
+  
+  Send                    NoAction
+  Send                    GoZone "Home"
+  Send                    MapSelectedTrackSendsToWidgets
+  Shift+Send              MapTrackSendsSlotToWidgets
+  
+  Pan                     Reaper %dummyAction%    // Dummy Action
+  Pan                     GoZone "Home"
+  Pan                     MapSelectedTrackReceivesToWidgets
+
+ZoneEnd

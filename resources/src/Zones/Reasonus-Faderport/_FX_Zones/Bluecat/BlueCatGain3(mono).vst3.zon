@@ -1,0 +1,22 @@
+Zone "VST3: Blue Cat's Gain 3 (Mono) (Blue Cat Audio)" "BlueCat Gain Mono"
+  SelectedTrackNavigator
+  Select1 FXParam 0 "On/Off" [ 0.0 1.0 ]
+  Fader1     FXParam 1 "Gain"
+
+/ Reset all the others, so the faders will go down
+	Fader1 NoAction 
+	Fader2 NoAction 
+	Fader3 NoAction 
+	Fader4 NoAction 
+	Fader5 NoAction 
+	Fader6 NoAction 
+	Fader7 NoAction 
+	Fader8 NoAction 
+	Fader2 NoAction
+	Fader3 NoAction
+	Fader4 NoAction
+	Fader5 NoAction
+	Fader6 NoAction
+	Fader7 NoAction
+	Fader8 NoAction
+ZoneEnd

@@ -1,0 +1,13 @@
+Zone "VST3: TR5 VC-670 (IK Multimedia)"
+
+	SelectedTrackNavigator
+	Fader1		FXParam 2 "Left Lat Time Constant"
+	Fader2		FXParam 3 "Right Vert Time Constant"
+	Fader3		FXParam 4 "Left Channel Input Gain"
+	Fader4		FXParam 5 "Right Channel Input Gain"
+	Fader5		FXParam 6 "Left Lat Threshold"
+	Fader6		FXParam 7 "Right Vert Threshold"
+	Fader7		NoAction
+	Fader8		FXParam 8 "Output"
+
+ZoneEnd

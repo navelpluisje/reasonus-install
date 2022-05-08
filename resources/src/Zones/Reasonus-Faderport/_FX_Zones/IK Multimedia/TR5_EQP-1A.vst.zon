@@ -1,0 +1,16 @@
+Zone "VST: TR5 EQP-1A (IK Multimedia)"
+
+	SelectedTrackNavigator
+
+	Fader1				FXParam 0 "Boost Low"
+	Fader3				FXParam 1 "Atten Low"
+	Fader5				FXParam 2 "Boost High"
+	Fader7				FXParam 3 "Atten High"
+	Fader8				FXParam 4 "Atten Sel"
+	Fader2				FXParam 5 "CPS"
+	Fader4				FXParam 6 "Bandwidth"
+	Fader6				FXParam 7 "KCS"
+	Fader8				FXParam 8 "Output"
+	Select8			FXParam 8 "Output" [ 0.5 ]
+	
+ZoneEnd

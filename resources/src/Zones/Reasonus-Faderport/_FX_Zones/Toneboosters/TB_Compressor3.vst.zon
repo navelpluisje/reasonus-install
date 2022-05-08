@@ -1,0 +1,16 @@
+Zone "VST: TB_Compressor_v3 (ToneBoosters)"
+	SelectedTrackNavigator
+	Fader2		FXParam 0 "Ratio"
+	Fader1		FXParam 1 "Threshld"
+	Fader2		FXParam 2 "Attack"
+	Fader1		FXParam 3 "SC HPF"
+	Fader3		FXParam 4 "Release"
+	Fader4		FXParam 5 "Range"
+	Select3	FXParam 6 "Auto rel"  [ 0 1 ]
+	Fader8		FXParam 7 "Dry wet"
+	Fader3		FXParam 8 "MakeUp"
+	Fader5		FXParam 9 "Algortm"
+	Fader6		NoAction
+	Fader7		NoAction
+	Fader8		NoAction
+ZoneEnd

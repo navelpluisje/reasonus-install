@@ -1,0 +1,14 @@
+Zone "VST: AIR TubeDrive (AIR Music Technology)"
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Drive"
+	Fader2			FXParam 1 "Headroom"
+	Fader3			FXParam 2 "Saturation"
+	Fader4			FXParam 3 "Output"
+	Fader5			NoAction
+	Fader6			NoAction
+	Fader7			NoAction
+	Fader8			NoAction
+	
+ZoneEnd

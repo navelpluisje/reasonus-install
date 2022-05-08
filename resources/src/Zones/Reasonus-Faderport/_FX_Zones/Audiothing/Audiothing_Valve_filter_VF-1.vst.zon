@@ -1,0 +1,20 @@
+Zone "VST: Valve Filter VF-1 (AudioThing)"
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Valve Drive"
+	Fader2			FXParam 1 "Valve Bias"
+	Select1		FXParam 2 "Valve Bypass" [ 0 1 ]
+	Select2		FXParam 3 "Valve Mode" [ 0 1 ]
+	Fader1			FXParam 4 "Filter Cutoff"
+	Fader2			FXParam 5 "Filter Resonanc"
+	Fader3			FXParam 6 "Filter Type"
+	Select3		FXParam 6 "Filter Type" [ 0 1 ]
+	Fader7			FXParam 8 "Input Gain"
+	Fader8			FXParam 9 "Ouput Gain"
+	Fader3			NoAction
+	Fader4			NoAction
+	Fader5			NoAction
+	Fader6			NoAction
+	
+ZoneEnd

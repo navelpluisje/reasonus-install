@@ -1,0 +1,76 @@
+//------------------------------------------------------------------------------
+// File:    FP8_Navigators.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    Navigators with Shift handle the functions
+//    Navigators with Option handle the screensets
+//------------------------------------------------------------------------------
+
+Zone Navigators
+    Channel             NoAction
+    Channel             GoZone "Navigators"
+    Channel             GoZone "NavigatorChannel"
+
+    Zoom                NoAction
+    Zoom                GoZone "Navigators"
+    Zoom                GoZone "NavigatorZoom"
+
+    Scroll              NoAction
+    Scroll              GoZone "Navigators"
+    Scroll              GoZone "NavigatorScroll"
+
+    Bank                NoAction
+    Bank                GoZone "Navigators"
+    Bank                GoZone "NavigatorBank"
+
+    Master              NoAction
+    Master              GoZone "Navigators"
+    Master              GoZone "NavigatorMaster"
+
+    Click               Reaper 40364    // Options: Toggle metronome
+    Hold+Click          GoZone "Navigators"
+    Hold+Click          GoZone "NavigatorMetronome"
+
+    Section             NoAction
+    Section             GoZone "Navigators"
+    Section             GoZone "NavigatorSection"
+
+    Marker              NoAction
+    Marker              GoZone "Navigators"
+    Marker              GoZone "NavigatorMarker"
+
+// ===========================================
+// FUNCTION KEYS
+// ===========================================
+// Function-Action-1 
+    Shift+Channel       Reaper 40078    // View: Toggle mixer visible
+// Function-Action-2 
+    Shift+Zoom          Reaper 50124    // Media explorer: Show/hide media explorer
+// Function-Action-3 
+    Shift+Scroll        Reaper 40251    // View: Show routing matrix window
+// Function-Action-4 
+    Shift+Bank          Reaper 40271    // View: Show FX browser window
+// Function-Action-5 
+    Shift+Master        Reaper 40326    // View: Show region/marker manager window
+// Function-Action-6 
+    Shift+Click         Reaper 41157    // View: Show project bay window
+// Function-Action-7 
+    Shift+Section       Reaper 40378    // View: Show big clock window
+// Function-Action-8 
+    Shift+Marker        Reaper 41074    // Toggle show all floating windows
+
+// ===========================================
+// SCREENSETS
+// ===========================================
+    Option+Channel      Reaper 40454    // Screenset: Load window set #01
+    Option+Zoom         Reaper 40455    // Screenset: Load window set #02
+    Option+Scroll       Reaper 40456    // Screenset: Load window set #03
+    Option+Bank         Reaper 40457    // Screenset: Load window set #04
+    Option+Master       Reaper 40458    // Screenset: Load window set #05
+    Option+Click        Reaper 40459    // Screenset: Load window set #06
+    Option+Section      Reaper 40460    // Screenset: Load window set #07
+    Option+Marker       Reaper 40461    // Screenset: Load window set #08
+
+ZoneEnd

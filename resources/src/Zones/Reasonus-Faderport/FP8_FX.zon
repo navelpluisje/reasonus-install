@@ -1,0 +1,45 @@
+//------------------------------------------------------------------------------
+// File:    FP8_FX.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    MCU style Effects control. Every channel shows one of the 
+//    effects or instruments of the current selected track
+//------------------------------------------------------------------------------
+
+
+Zone "SelectedTrackFXMenu"
+  SelectedTrackFXMenuNavigator
+
+  ScribbleLine1_|     NoAction
+  ScribbleLine1_1     FixedTextDisplay "Effects"
+  ScribbleLine1_2     TrackNameDisplay
+  ScribbleLine2_|     NoAction
+  ScribbleLine3_|     FXMenuNameDisplay
+  ScribbleLine4_|     NoAction
+
+  Mute|               Reaper _S&M_FXBYP|
+  Solo|               GoFXSlot
+  Solo|               Reaper "_S&M_WNCLS5" { 0 20 0 0 255 0 }
+  Solo|               Reaper _S&M_TOGLFLOATFX|
+
+
+// ===========================================
+// TRACK NAVIGATION
+// ===========================================
+  Track               NoAction
+  Track               GoZone "Home"
+
+  Plugin              Reaper %dummyAction%    // Dummy Action
+  Plugin              GoZone "Home"
+  Plugin              MapTrackFXMenusSlotToWidgets
+
+  Send                NoAction
+  Send                MapSelectedTrackSendsToWidgets
+  Shift+Send          MapTrackSendsSlotToWidgets
+  
+  Pan                 NoAction
+  Pan                 MapSelectedTrackReceivesToWidgets
+  Shift+Pan           MapTrackReceivesSlotToWidgets
+ZoneEnd

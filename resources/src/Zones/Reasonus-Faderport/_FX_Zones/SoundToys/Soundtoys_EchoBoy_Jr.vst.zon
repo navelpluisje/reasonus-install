@@ -1,0 +1,20 @@
+Zone "VST: EchoBoy Jr (Soundtoys)"
+
+	SelectedTrackNavigator
+
+	Select1			FXParam 0 "Bypass" [ 0.0 1.0 ]
+	Fader7				FXParam 1 "InputGain"
+	Fader8				FXParam 2 "OutputGain"
+	Fader1				FXParam 3 "Mix"
+	Fader1				FXParam 4 "Mode" 
+	Fader4				FXParam 5 "Style"
+	Fader3				FXParam 6 "Glide" [ 0.0 1.0 ]
+	Select3			FXParam 6 "Glide" [ 0.0 1.0 ]
+	Fader2				FXParam 9 "EchoTime"
+	Fader3				FXParam 10 "Feedback"
+	Fader6				FXParam 11 "Saturation"
+	Fader7				FXParam 12 "LowCut"
+	Fader8				FXParam 13 "HighCut"
+	Fader5				NoAction
+	Fader6				NoAction
+ZoneEnd

@@ -1,0 +1,13 @@
+Zone "VST: SAUSAGE FATTENER (DADA LIFE)"
+
+	SelectedTrackNavigator
+
+	Fader1		FXParam 0 "Fattness"
+	Fader2		FXParam 1 "Color"
+	Fader3		FXParam 2 "Gain"
+	Fader4		NoAction
+	Fader5		NoAction
+	Fader6		NoAction
+	Fader7		NoAction
+	Fader8		NoAction
+ZoneEnd

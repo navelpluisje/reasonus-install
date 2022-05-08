@@ -1,0 +1,13 @@
+Zone "VST: TR5 One (IK Multimedia)"
+	SelectedTrackNavigator
+	Fader2			FXParam 0 "Air"
+	Fader1			FXParam 1 "Focus"
+	Fader3			FXParam 2 "Push"
+	Fader2			FXParam 3 "Body"
+	Fader4			FXParam 4 "Width"
+	Fader5			FXParam 5 "Volume"
+	Fader6			FXParam 6 "Transient"
+	Fader7			FXParam 7 "Analog"
+	Fader6			FXParam 8 "Bass Punch"
+	Fader8 			NoAction
+ZoneEnd

@@ -1,0 +1,52 @@
+Zone "VST3: Outer Space (AudioThing)"
+/Black knobs on knobs
+/Green knobs on faders
+/Toggles on RotaryPush
+
+	SelectedTrackNavigator
+
+	Fader2			FXParam 0 "Repeat Rate Global"
+	FXParam 1 "Repeat Rate Head 1"
+	FXParam 2 "Repeat Rate Head 2"
+	FXParam 3 "Repeat Rate Head 3"
+	Select3		FXParam 4 "Sync" [ 0 1 ]
+	Fader3			FXParam 5 "Intensity"
+	Fader5			FXParam 6 "Echo Volume"
+	Fader1			FXParam 7 "Mode"
+	Fader4			FXParam 8 "Wow Flutter"
+	Select8		FXParam 9 "Tape Type" [ 0 0.5 1 ]
+	FXParam 10 "Pre Emphasis"
+	Fader6				FXParam 11 "Bass"
+	Select6			FXParam 11 "Bass" [ 0.5 ]
+	Fader7				FXParam 12 "Treble"
+	Select7			FXParam 12 "Treble" [ 0.5 ]
+	Fader8			FXParam 13 "Reverb Volume"
+	Fader5		FXParam 14 "Decay" [ 0 1 ]
+	FXParam 15 "Noise"
+	FXParam 16 "Noise Envelope"
+	Fader1			FXParam 17 "Input Volume" 
+	Fader2			FXParam 18 "Output Volume"
+	Select1		FXParam 19 "Wet Only" [ 0 1 ]
+	FXParam 20 "Send"
+	Select2		FXParam 21 "Stereo" [ 0 1 ]
+	FXParam 22 "Bypass"
+	FXParam 23 "Volume Head 1"
+	FXParam 24 "Volume Head 2"
+	FXParam 25 "Volume Head 3"
+	FXParam 26 "Pan Head 1"
+	FXParam 27 "Pan Head 2"
+	FXParam 28 "Pan Head 3"
+	FXParam 29 "LowCut"
+	FXParam 30 "HiCut"
+	FXParam 31 "Ducking"
+	FXParam 32 "Rate Ballistic"
+	FXParam 33 "Variable Speed"
+	FXParam 34 "Stereo Delay"
+	FXParam 35 "Noise Tone"
+	FXParam 36 "PreAmp"
+	FXParam 37 "Meter Gain"
+	Select5 	FXParam 38 "Reverb Type" [ 0 1 ]
+	FXParam 39 "Bypass"
+	FXParam 40 "Bypass"
+	FXParam 41 "Wet"
+ZoneEnd

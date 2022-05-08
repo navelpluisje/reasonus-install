@@ -1,0 +1,28 @@
+Zone "VST: TR5 White Channel (IK Multimedia)"
+
+	SelectedTrackNavigator
+	Option Shift
+	Fader7			FXParam 6 "HP Freq"
+	Select7		FXParam 2 "FLT In" [ 0.0 1.0 ]
+	Fader8			FXParam 7 "LP Freq"
+	Fader1			FXParam 16 "LF Gain"
+	Shift+Fader1	FXParam 17 "LF Freq"
+	Fader2			FXParam 13 "LMF Gain"
+	Fader3			FXParam 14 "LMF Freq"
+	Shift+Fader3	FXParam 15 "LMF Q
+	Fader4			FXParam 10 "HMF Gain"
+	Fader5			FXParam 11 "HMF Freq"
+	Shift+Fader5	FXParam 12 "HMF Q"
+	Fader6			FXParam 8 "HF Gain"
+	Shift+Fader6	FXParam 9 "HF Freq"
+	
+	Fader7			FXParam 21 "In Gain"
+	Fader8			FXParam 22 "Out Gain"
+	Fader4			FXParam 23 "Threshold (Comp)"
+	Fader6			FXParam 24 "Ratio"
+	Fader5			FXParam 25 "Release (Comp)"
+	Fader1			FXParam 28 "Threshold (Exp)"
+	Fader3			FXParam 29 "Hold"
+	Fader2			FXParam 30 "Range"
+	
+ZoneEnd

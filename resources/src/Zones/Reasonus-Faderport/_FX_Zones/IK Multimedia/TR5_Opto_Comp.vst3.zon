@@ -1,0 +1,12 @@
+Zone "VST3: TR5 Opto Comp (IK Multimedia)"
+	SelectedTrackNavigator
+	Fader1			FXParam 0 "Input"
+	Fader2			FXParam 1 "Ratio"
+	Fader3			FXParam 2 "Attack"
+	Fader4			FXParam 3 "Release"
+	Fader5			NoAction
+	Fader6			NoAction
+	Fader7			FXParam 4 "Compression"
+	Fader8			FXParam 5 "Output"
+
+ZoneEnd

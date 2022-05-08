@@ -1,0 +1,8 @@
+Zone "VST3: TR5 Saturator X (IK Multimedia)"
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Input Gain"
+	Fader8			FXParam 1 "Output Gain"
+	Fader2			FXParam 2 "Mode"
+ZoneEnd

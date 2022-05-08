@@ -1,0 +1,20 @@
+Zone "VST: AIR Flanger (AIR Music Technology)"
+
+	SelectedTrackNavigator
+
+	Select1			FXParam 1 "Sync" [ 0 1 ]
+	Fader1				FXParam 2 "Rate"
+	Fader2				FXParam 4 "Pre Delay"
+
+	Fader3				FXParam 3 "Depth"  
+	Fader4				FXParam 8 "LFO Wave"
+	Select2			FXParam 0 "Retrigger" [ 0 1 ]
+
+	Fader5				FXParam 5 "Feedback"
+	Fader6				FXParam 9 "LFO L/R Offset"
+
+	Fader7				FXParam 7 "Low Cut"
+	Select7			FXParam 6 "Phase Invert" [ 0 1 ]
+	
+  Fader8				FXParam 10 "Mix"
+ZoneEnd

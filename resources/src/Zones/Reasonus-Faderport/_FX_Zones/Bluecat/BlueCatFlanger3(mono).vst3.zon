@@ -1,0 +1,58 @@
+Zone "VST3: Blue Cat's Flanger 3 (Mono) (Blue Cat Audio)" "Blue Cat Flanger" 
+  SelectedTrackNavigator
+  Option Option
+
+  Select1             FXParam 0 "ByPass" [ 0.0 1.0 ]
+  ScribbleLine1_1     FXParamNameDisplay 0 "#ByPass"
+  ScribbleLine2_1     FXParamValueDisplay 0
+
+  Fader1              FXParam 1 "Gain"
+  ScribbleLine3_1     FXParamNameDisplay 1 "Gain"
+  ScribbleLine4_1     FXParamValueDisplay 1
+
+  Fader2              FXParam 5 "Delay"
+  ScribbleLine3_2     FXParamNameDisplay 5 "Delay"
+  ScribbleLine4_2     FXParamValueDisplay 5
+
+  Fader3              FXParam 6 "Depth"
+  ScribbleLine3_3     FXParamNameDisplay 6 "Depth"
+  ScribbleLine4_3     FXParamValueDisplay 6
+
+  Fader4              FXParam 7 "Rate"
+  ScribbleLine3_4     FXParamNameDisplay 7 "Rate"
+  ScribbleLine4_4     FXParamValueDisplay 7
+
+  Fader6              FXParam 2 "Dry"
+  ScribbleLine3_6     FXParamNameDisplay 2 "Dry"
+  ScribbleLine4_6     FXParamValueDisplay 2
+
+  Fader7              FXParam 3 "Feed Fwd"
+  ScribbleLine3_7     FXParamNameDisplay 3 "Feed Fwd"
+  ScribbleLine4_7     FXParamValueDisplay 3
+
+  Fader8              FXParam 4 "FeedBack"
+  ScribbleLine3_8     FXParamNameDisplay 4 "FeedBack"
+  ScribbleLine4_8     FXParamValueDisplay 4
+
+  Select8             FXParam 8 "Shape"  [ 0.0 1.0 ]
+  ScribbleLine1_8     FXParamNameDisplay 8 "Shape"
+  ScribbleLine2_8     FXParamValueDisplay 8
+
+  Fader5              NoAction
+  / Rest all the other stuff
+  ScribbleLine1_2       NoAction
+  ScribbleLine2_2    NoAction
+  ScribbleLine1_3       NoAction
+  ScribbleLine2_3    NoAction
+  ScribbleLine1_4       NoAction
+  ScribbleLine2_4    NoAction
+  ScribbleLine1_5       NoAction
+  ScribbleLine2_5    NoAction
+  ScribbleLine3_5       NoAction
+  ScribbleLine4_5    NoAction
+  ScribbleLine1_6       NoAction
+  ScribbleLine2_6    NoAction
+  ScribbleLine1_7       NoAction
+  ScribbleLine2_7    NoAction
+
+ZoneEnd

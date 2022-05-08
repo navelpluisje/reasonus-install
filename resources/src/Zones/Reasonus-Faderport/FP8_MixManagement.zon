@@ -1,0 +1,15 @@
+//------------------------------------------------------------------------------
+// File:    FP8_MixManagement.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    Decide the tracks you want to see
+//------------------------------------------------------------------------------
+
+Zone "MixManagement"
+  AudioBtn     Reaper %dummyAction% { 20 20 20 20 20 20 } 
+  AudioBtn     GoZone "TracksByName"
+  BusBtn       Reaper _RS41911fd95421e45fbd0728187a326cdffffea934 { 20 20 20 20 20 20 } // Script: Show All Top Level Tracks
+  AllBtn       Reaper _RS49ae0e927bf59f8dd797f91fdc19daa0bb1dc022 { 20 20 20 20 20 20 } // Script: Show All Tracks
+ZoneEnd 

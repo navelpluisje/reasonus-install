@@ -1,0 +1,16 @@
+Zone "VST3: Things Texture (AudioThing)"
+
+	SelectedTrackNavigator
+
+	Select1		FXParam 0 "MidSide" [ 0 1 ]
+	Select2		FXParam 1 "Diffusion" [ 0 1 ]
+	Fader3			FXParam 2 "Pitch"
+	Fader2			FXParam 3 "Balance"
+	Fader1			FXParam 4 "Mix"
+	Fader4			NoAction
+	Fader5			NoAction
+	Fader6			NoAction
+	Fader7			NoAction
+	Fader8			NoAction
+
+ZoneEnd

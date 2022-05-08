@@ -1,0 +1,17 @@
+Zone "VST: AIR SaturationFilter (AIR Music Technology)"
+
+	SelectedTrackNavigator
+
+	Fader2			FXParam 0 "FilterType" [ 0 1 ]
+	Fader1			FXParam 1 "FilterAlgorithm"
+	Fader3			FXParam 2 "DistortionMode"
+	Fader4			FXParam 3 "DistortionGain"
+	Fader1			FXParam 4 "CutoffFrequency"
+	Fader2			FXParam 5 "ResonanceFactor"
+	Fader8			FXParam 6 "OutputGain"
+	Fader3			NoAction
+	Fader4			NoAction
+	Fader5			NoAction
+	Fader6			NoAction
+	Fader7			NoAction
+ZoneEnd

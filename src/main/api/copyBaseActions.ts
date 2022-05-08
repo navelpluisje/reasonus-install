@@ -7,9 +7,10 @@ export const copyBaseActions = () => {
   const reaperPath = settings.get('reaperPath') as string;
   const baseActions = [
     'always-on.lua',
+    'showTracksByName.lua',
   ];
 
-  const srcDir = path.join(__dirname, 'resources');
+  const srcDir = path.join(__dirname, 'resources', 'Scripts');
   const destDir = path.join(reaperPath, 'Scripts', 'Reasonus');
 
   try {

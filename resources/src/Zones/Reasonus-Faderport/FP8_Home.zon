@@ -1,0 +1,23 @@
+//------------------------------------------------------------------------------
+// File:    FP8_Home.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    Home is where all the fun starts
+//------------------------------------------------------------------------------
+
+Zone Home
+  LeftShft   Shift
+  RightShft  Option
+
+  IncludedZones
+    "MixManagement"
+    "Panning"
+    "NavigatorChannel"
+    "Navigators"
+    "Automation"
+    "Transport"
+    "Channel"
+  IncludedZonesEnd
+ZoneEnd

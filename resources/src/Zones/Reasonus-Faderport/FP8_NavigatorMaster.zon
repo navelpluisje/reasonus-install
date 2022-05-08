@@ -1,0 +1,31 @@
+//------------------------------------------------------------------------------
+// File:    FP8_NavigatorMaster.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    Master volume and bank selection
+//------------------------------------------------------------------------------
+
+Zone NavigatorMaster
+    MasterTrackNavigator
+// ===========================================
+// BUTTONS AND SCROLL
+// ===========================================
+    Prev                  TrackBank -8
+    Next                  TrackBank  8
+    Shift+Prev            NoAction
+    Shift+Next            NoAction
+    ScrollLeft            NoAction
+    ScrollRight           NoAction
+    Shift+ScrollLeft      NoAction
+    Shift+ScrollRight     NoAction
+
+    RotaryBigPush         NoAction
+    Shift+RotaryBigPush   NoAction
+    Option+RotaryBigPush  NoAction
+    RotaryBig             TrackVolume
+  
+    Master                Reaper %dummyAction%    // Dummy Action
+    Shift+Master          Reaper 40326    // View: Show region/marker manager window
+ZoneEnd

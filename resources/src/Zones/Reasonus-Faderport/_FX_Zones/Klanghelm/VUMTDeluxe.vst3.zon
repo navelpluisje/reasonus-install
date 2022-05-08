@@ -1,0 +1,40 @@
+Zone "VST3: VUMTdeluxe (Klanghelm)"
+
+	SelectedTrackNavigator
+	Option Shift
+	
+	Select1			FXParam 0 "TrimL" [ 0.5 ]
+	Fader1			FXParam 0 "TrimL"
+	Select2			FXParam 1 "TrimR" [ 0.5 ]
+	Fader2			FXParam 1 "TrimR"
+	FXParam 2 "TrimMid"
+	FXParam 3 "TrimSide"
+	FXParam 4 "Link"
+	FXParam 5 "Monitor"
+	FXParam 6 "PolarityL"
+	FXParam 7 "PolarityR"
+	FXParam 8 "MuteL"
+	FXParam 9 "MuteR"
+	Select3		FXParam 10 "FilterOn" [  0 1 ]
+	Shift+Fader3	FXParam 11 "FilterHPFtype"
+	Fader3			FXParam 12 "FilterHPF"
+	Shift+Fader4	FXParam 13 "FilterLPFtype"
+	Fader4			FXParam 14 "FilterLPF"
+	Select5		FXParam 15 "DynEqOn" [ 0 1 ]
+	Select6		FXParam 16 "DynEqListen"
+	Shift+Fader5	FXParam 17 "DynEqType"
+	Fader5			FXParam 18 "DynEqFreq"
+	Fader6			FXParam 19 "DynEqDepth"
+	Select7		FXParam 20 "MonoMakerOn" [ 0 1 ]
+	Fader7			FXParam 21 "MonoMakerFreq"
+	Fader8			FXParam 22 "MonoMakerAmountPct"
+	Fader1			NoAction
+	Fader2			NoAction
+	Fader3			NoAction
+	Fader4			NoAction
+	Fader5			NoAction
+	Fader6			NoAction
+	Fader7			NoAction
+	Fader8			NoAction
+
+ZoneEnd

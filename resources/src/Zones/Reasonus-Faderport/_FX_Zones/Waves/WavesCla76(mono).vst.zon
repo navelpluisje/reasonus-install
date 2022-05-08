@@ -1,0 +1,11 @@
+Zone "VST: CLA-76 Mono (Waves)"
+    SelectedTrackNavigator
+    Fader1             FXParam 0  "Input"
+    Fader2             FXParam 1  "Output"
+    Fader3             FXParam 2  "Attack"
+    Fader4             FXParam 3  "Release"
+    Select5         FXParam 4  "Ratio"     [ 0.0 0.25 0.5 0.75 1.0 ]
+    Select6         FXParam 7  "Meter"     [ 0.0 0.5 1.0 ]
+    Select7         FXParam 5  "Analog"    [ 0.0 0.5 1.0 ]
+    Select8         FXParam 6  "Revision"  [ 0.0 1.0 ]
+ZoneEnd

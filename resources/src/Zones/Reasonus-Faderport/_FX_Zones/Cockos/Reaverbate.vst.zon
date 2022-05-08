@@ -1,0 +1,13 @@
+Zone "VST: ReaVerbate (Cockos)"
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Wet"
+	Fader2			FXParam 1 "Dry"
+	Fader3			FXParam 2 "RoomSz"
+	Fader4			FXParam 3 "Damp"
+	Fader5			FXParam 4 "Width"
+	Fader6			FXParam 5 "Delay"
+	Fader7			FXParam 6 "Lowpass"
+	Fader8			FXParam 7 "Hipass"
+ZoneEnd

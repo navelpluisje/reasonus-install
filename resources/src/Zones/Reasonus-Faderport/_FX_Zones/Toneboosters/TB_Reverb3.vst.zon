@@ -1,0 +1,24 @@
+Zone "VST: TB_Reverb_v3 (ToneBoosters)"
+
+	SelectedTrackNavigator
+
+	Fader8			FXParam 0 "Dry/wet"
+	Select8		FXParam 0 "Dry/wet" [ 1 ]
+	Fader5 		FXParam 1 "Width"
+	Fader1			FXParam 2 "T60"
+	Fader3			FXParam 3 "Dampchar"
+	Fader2			FXParam 4 "Dampfreq"
+	Fader2 		FXParam 5 "Roomsize"
+	Fader1			FXParam 6 "Roomshpe"
+	Fader3 		FXParam 7 "Diffusn"
+	Fader4			FXParam 8 "Predelay"
+	Fader6			FXParam 9 "HP freq"
+	Fader7 			FXParam 10 "LP freq"
+	Fader6 		FXParam 11 "EarlyRef"
+	Select1 	FXParam 12 "Modulate" [ 0 1 ]
+	FXParam 13 "HQ mode"
+	FXParam 14 "Bypass"
+	FXParam 15 "Wet"
+	Fader4			NoAction
+	Fader5			NoAction
+ZoneEnd

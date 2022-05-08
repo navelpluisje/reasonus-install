@@ -1,0 +1,23 @@
+Zone "VST3: Blue Cat's FreqAnalyst 2 (Mono) (Blue Cat Audio)" "Blue Cat FreqAnalyst" 
+  SelectedTrackNavigator
+  Option Option
+
+  Select1    FXParam 0 "ByPass" [ 0.0 1.0 ]
+  Fader1        FXParam 1 "Precision" [ 0.0>1.0 (0.1) ]
+  Fader2        FXParam 2 "Speed"
+  Fader3        FXParam 3 "Attack"
+  Fader4        FXParam 4 "Release"
+  Fader5        FXParam 5 "Peek Reset"
+  Fader6        FXParam 6 "Absolute"
+  Fader7        FXParam 7 "Relative"
+
+/ Rest all the other stuff    
+  Fader1 NoAction 
+  Fader2 NoAction 
+  Fader3 NoAction 
+  Fader4 NoAction 
+  Fader5 NoAction 
+  Fader6 NoAction 
+  Fader7 NoAction 
+  Fader8 NoAction 
+ZoneEnd

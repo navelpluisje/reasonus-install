@@ -1,0 +1,20 @@
+Zone "VST: Decapitator (Soundtoys)"
+
+	SelectedTrackNavigator
+
+	Select8			FXParam 0 "Bypass"  [ 0.0 1.0 ]
+	Fader2				FXParam 1 "Style"
+	Fader1				FXParam 2 "Drive"
+	Select1			FXParam 3 "Punish"  [ 0.0 1.0 ]
+	Fader3				FXParam 4 "LowCut"
+	Fader4				FXParam 5 "Tone"
+	Select4			FXParam 5 "Tone" [ 0.5 ]
+	Fader5				FXParam 6 "HighCut"
+	Select7			FXParam 8 "AutoGain"  [ 0.0 1.0 ]
+	Select3			FXParam 9 "LowThump"  [ 0.0 1.0 ]
+	Select5			FXParam 10 "HighSlope"  [ 0.0 1.0 ]
+	Fader7				FXParam 11 "OutputTrim"
+	Fader8				FXParam 7 "Mix"
+
+
+ZoneEnd

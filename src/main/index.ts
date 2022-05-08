@@ -4,6 +4,7 @@ import os from 'os';
 import path from 'path';
 
 import { FunctionActions } from '../types';
+import { isDev } from '../utils/isDev';
 import { settings } from '../utils/settings';
 import { copyBaseActions } from './api/copyBaseActions';
 import { getFunctionActions } from './api/getFunctionActions';
@@ -58,8 +59,10 @@ const createWindow = (): void => {
   // and load the index.html of the app.
   mainWindow.loadURL(HOME_WEBPACK_ENTRY);
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  if (isDev()) {
+    // Open the DevTools.
+    mainWindow.webContents.openDevTools();
+  }
 };
 
 ipcMain.handle('dialog:openDirectory', async () => await getReaperDirectory(mainWindow));
@@ -120,8 +123,10 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 
-app.whenReady().then(() => {
-  installExtension([REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS])
-    .then((name) => console.log(`Added Extension:  ${name}`))
-    .catch((err) => console.log('An error occurred: ', err));
-});
+if (isDev()) {
+  app.whenReady().then(() => {
+    installExtension([REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS])
+      .then((name) => console.log(`Added Extension:  ${name}`))
+      .catch((err) => console.log('An error occurred: ', err));
+  });
+}

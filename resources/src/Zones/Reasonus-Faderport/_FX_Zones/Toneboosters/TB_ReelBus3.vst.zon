@@ -1,0 +1,30 @@
+Zone "VST: TB_ReelBus_v3 (ToneBoosters)"
+
+	SelectedTrackNavigator
+
+	Fader2				FXParam 0 "Reclevel"
+	Select8 		FXParam 1 "AutoMkup" [ 0 1 ]
+	Fader4 			FXParam 2 "HissLvl"
+	Fader5 			FXParam 3 "AspNoise"
+	Fader3 				FXParam 4 "TapeSpec"
+	Fader4				FXParam 5 "Saturate"
+	Fader1 			FXParam 6 "Wow&Flut"
+	Fader3 			FXParam 7 "CircClip"
+	Fader1				FXParam 8 "Device"
+	Fader2 			FXParam 9 "Overbias"
+	Select4 		FXParam 10 "Hiss-30"  [ 0 1 ]
+	Select5 		FXParam 11 "AspN-30"  [ 0 1 ]
+	Fader8 				FXParam 12 "OutGain"
+	Select1			FXParam 13 "Mono" [ 0 1 ]
+	Select7 		FXParam 14 "PreEmph" [ 0 1 ]
+	Fader7 			FXParam 15 "MidSide"
+	Fader8 			FXParam 16 "LowHigh"
+	FXParam 17 "Legacy"
+	FXParam 18 "Bypass"
+	FXParam 19 "Bypass"
+	FXParam 20 "Wet"
+	Fader5				NoAction
+	Fader6				NoAction
+	Fader7				NoAction
+
+ZoneEnd

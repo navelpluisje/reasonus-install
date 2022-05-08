@@ -1,0 +1,16 @@
+Zone "VST: Little Plate (Soundtoys)"
+
+	SelectedTrackNavigator
+
+	Select8			FXParam 0 "Bypass" [ 0.0 1.0 ]
+	Fader8				FXParam 1 "Mix"
+	Fader1				FXParam 2 "Decay"
+	Fader7				FXParam 3 "Low Cut"
+	Select7			FXParam 4 "Mod Enable"  [ 0.0 1.0 ]
+	Fader2				NoAction
+	Fader3				NoAction
+	Fader4				NoAction
+	Fader5				NoAction
+	Fader6				NoAction
+
+ZoneEnd

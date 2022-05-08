@@ -1,0 +1,30 @@
+//------------------------------------------------------------------------------
+// File:    FP8_NavigatorScroll.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    Scroll through the main view
+//------------------------------------------------------------------------------
+
+Zone NavigatorScroll
+// ===========================================
+// BUTTONS AND SCROLL
+// ===========================================
+    Prev                  Reaper 40286   // Track: Go to previous track
+    Next                  Reaper 40285   // Track: Go to next track
+    Shift+Prev            NoAction
+    Shift+Next            NoAction
+    ScrollLeft            Reaper 40139   // View: Scroll view down
+    ScrollRight           Reaper 40138   // View: Scroll view up
+    Shift+ScrollLeft      Reaper 40140   // View: Scroll view left
+    Shift+ScrollRight     Reaper 40141   // View: Scroll view right
+
+    RotaryBigPush         Reaper 40913   // Track: Vertical scroll selected tracks into view
+    Shift+RotaryBigPush   Reaper _SWS_HSCROLLPLAY50  // SWS: Horizontal scroll to put play cursor at 50%
+    Option+RotaryBigPush  NoAction
+    RotaryBig             NoAction
+  
+    Scroll                Reaper %dummyAction%    // Dummy Action
+    Shift+Scroll          Reaper 40251    // View: Show routing matrix window
+ZoneEnd

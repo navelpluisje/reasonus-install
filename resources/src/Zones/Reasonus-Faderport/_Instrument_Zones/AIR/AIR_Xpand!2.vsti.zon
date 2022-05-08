@@ -1,0 +1,26 @@
+Zone "VSTi: Xpand!2 (AIR Music Technology)"
+/Smart knobs mapped to first 5 faders (no fine pitch). FX Send 1, 2 and A-Part Volume on last 3 faders
+/Part A knobs mapped to first 6 knobs
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Attack"
+	Fader2			FXParam 1 "Decay"
+	Fader3			FXParam 2 "Release"
+	Fader4			FXParam 3 "Cutoff"
+	Fader5			FXParam 4 "Env Depth"
+	Fader6			FXParam 16 "Part A FX1 Send"
+	Fader7			FXParam 17 "Part A FX2 Send"
+	Fader8			FXParam 13 "Part A Level"
+	Rotary1 		FXParam 7 "Part A Edit 1"
+	Rotary2 		FXParam 8 "Part A Edit 2"
+	Rotary3			FXParam 9 "Part A Edit 3"
+	Rotary4 		FXParam 10 "Part A Edit 4"
+	Rotary5			FXParam 11 "Part A Edit 5"
+	Rotary6 		FXParam 12 "Part A Edit 6"
+	Rotary7			FXParam 14 "Part A Pan"
+	RotaryPush7		FXParam 14 "Part A Pan" [ 0.5 ]
+	Rotary8			FXParam 6 "Master Level"
+	RotaryPush8		FXParam 6 "Master Level" [ 0.7 ]
+
+	ZoneEnd

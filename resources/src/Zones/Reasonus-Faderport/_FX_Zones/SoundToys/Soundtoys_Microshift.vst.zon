@@ -1,0 +1,11 @@
+Zone "VST: MicroShift (Soundtoys)"
+
+	SelectedTrackNavigator
+
+	Select1				FXParam 0 "Bypass" [ 0.0 1.0 ]
+	Fader1					FXParam 1 "Mix"
+	Fader4					FXParam 3 "Detune"
+	Fader5					FXParam 4 "Delay"
+	Fader2					FXParam 5 "Focus"
+	Fader3					FXParam 6 "Style"
+ZoneEnd

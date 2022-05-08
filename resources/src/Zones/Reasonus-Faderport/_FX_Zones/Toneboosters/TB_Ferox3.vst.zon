@@ -1,0 +1,27 @@
+Zone "VST: TB_Ferox_v3 (ToneBoosters)"
+
+	SelectedTrackNavigator
+
+	Fader1				FXParam 0 "Drive"
+	Fader3				FXParam 1 "FB level"
+	Fader4				FXParam 2 "FB delay"
+	Fader6				FXParam 3 "Compress"
+	Fader7				FXParam 4 "Release"
+	Fader1				FXParam 5 "HighPass"
+	Fader2 			FXParam 6 "LowPass"
+	Select1			FXParam 7 "Filter" [ 0 1 ]
+	Fader3 			FXParam 8 "Saturate"
+	Fader4 			FXParam 9 "Hystrsis"
+	Select4			FXParam 10 "Ovrsmpl" [ 0 1 ]
+	Fader8				FXParam 11 "Outgain"
+	Select8			FXParam 12 "Power"  [ 0 1 ]
+	Select3			FXParam 13 "Mode" [ 0 1 ]
+	Select2			FXParam 14 "Mono" [ 0 1 ]
+	FXParam 15 "Bypass"  [ 0 1 ]
+	FXParam 16 "Wet"
+	Fader5				NoAction
+	Fader8				NoAction
+	Fader5				NoAction
+	Fader6				NoAction
+	Fader7				NoAction
+ZoneEnd

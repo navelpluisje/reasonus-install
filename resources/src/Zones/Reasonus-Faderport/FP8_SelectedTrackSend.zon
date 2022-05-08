@@ -1,0 +1,50 @@
+//------------------------------------------------------------------------------
+// File:    FP8_SelectedTrackSend.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    MCU styled send handling for the selectred track
+//------------------------------------------------------------------------------
+
+Zone "SelectedTrackSend"
+  SelectedTrackSendNavigator
+  
+  ScribbleLine1_|     NoAction
+  ScribbleLine1_1     FixedTextDisplay "Sends"
+  ScribbleLine1_2     TrackNameDisplay
+  ScribbleLine2_|     TrackSendNameDisplay
+  ScribbleLine3_|     TrackSendVolumeDisplay
+  ScribbleLine4_|     TrackSendPrePostDisplay
+  Shift+ScribbleLine4_|     TrackSendPanDisplay
+  ValueBar|           TrackSendPan
+
+  SoloClear           Reaper "40293"   // Track: View routing and I/O for current/last touched track
+  Solo|               TrackSendPrePost
+  Shift+Solo|         TrackSendInvertPolarity
+  Mute|               TrackSendMute
+
+  Fader|              TrackSendVolume
+  Shift+Fader|        TrackSendPan
+  TrackTouch+Fader|   TrackSendVolume
+  FaderTouch|         TrackTouch
+
+// ===========================================
+// TRACK NAVIGATION
+// ===========================================
+  Track               NoAction
+  Track               GoZone "Home"
+
+  Plugin              NoAction
+  Plugin              MapSelectedTrackFXToMenu
+  Shift+Plugin        MapTrackFXMenusSlotToWidgets
+
+  Send                Reaper %dummyAction%    // Dummy Action
+  Send                GoZone "Home"
+  Send                MapTrackSendsSlotToWidgets
+
+  Pan                 NoAction
+  Pan                 MapSelectedTrackReceivesToWidgets
+  Shift+Pan           MapTrackReceivesSlotToWidgets
+
+ZoneEnd

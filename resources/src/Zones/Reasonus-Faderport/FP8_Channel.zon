@@ -1,0 +1,58 @@
+//------------------------------------------------------------------------------
+// File:    FP8_Channel.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    File contains handling the Channel
+//------------------------------------------------------------------------------
+
+
+Zone "Channel"
+  TrackNavigator
+
+  Arm Control
+  // Some display stuff
+  ScribbleLine1_|     TrackNameDisplay
+  ScribbleLine2_|     TrackVolumeDisplay
+  ScribbleLine3_|     NoAction
+  ScribbleLine4_|     TrackPanDisplay
+  ValueBar|           TrackPan
+  / VUMeter|          TrackOutputMeter
+
+
+  Mute|               TrackMute
+  Solo|               TrackSolo
+  Select|             TrackUniqueSelect  { 20 20 20 255 255 255 }
+  Shift+Select|       TrackSelect        { 20 20 20 255 255 255 }
+  Option+Select|      TrackSelect        { 20 20 20 255 255 255 }
+  Control+Select|     TrackRecordArm     { 20 0 0 255 0 0 }
+  Shift+Arm           Reaper 40490       // Track: Arm all tracks for recording
+  Option+Arm          Reaper 40491       // Track: Unarm all tracks for recording
+
+  SoloClear           Reaper 40340       // Track: Unsolo all tracks
+  MuteClear           Reaper 40339       // Track: Unmute all tracks
+  
+  Shift+Fader|        TrackPan
+  Fader|              TrackVolume
+  FaderTouch+Fader|   TrackVolume
+  FaderTouch|         TrackTouch
+
+
+// ===========================================
+// TRACK NAVIGATION
+// ===========================================
+  Track               Reaper %dummyAction%    // Dummy Action
+  
+  Plugin              NoAction
+  Plugin              MapSelectedTrackFXToMenu
+  Shift+Plugin        MapTrackFXMenusSlotToWidgets
+
+  Send                NoAction
+  Send                MapSelectedTrackSendsToWidgets
+  Shift+Send          MapTrackSendsSlotToWidgets
+
+  Pan                 NoAction
+  Pan                 MapSelectedTrackReceivesToWidgets
+  Shift+Pan           MapTrackReceivesSlotToWidgets
+ZoneEnd 

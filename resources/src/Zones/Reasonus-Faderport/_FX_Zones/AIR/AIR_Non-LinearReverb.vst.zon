@@ -1,0 +1,15 @@
+Zone "VST: AIR Non-LinearReverb (AIR Music Technology)"
+
+	SelectedTrackNavigator
+
+	Fader2			FXParam 0 "Dry Delay"
+	Fader1			FXParam 1 "Pre Delay"
+	Fader3			FXParam 2 "Reverb Time"
+	Fader4			FXParam 3 "Diffusion"
+	Fader6			FXParam 4 "Low Cut"
+	Fader7			FXParam 5 "High Cut"
+	Fader5			FXParam 6 "Width"
+	Select1		FXParam 7 "Reverse" [ 0 1 ]
+	Fader8			FXParam 8 "Mix"
+
+ZoneEnd

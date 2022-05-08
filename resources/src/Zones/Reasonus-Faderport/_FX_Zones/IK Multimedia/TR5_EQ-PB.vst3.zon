@@ -1,0 +1,17 @@
+Zone "VST3: TR5 EQ-PB (IK Multimedia)"
+
+	SelectedTrackNavigator
+
+	Fader4			FXParam 0 "Hi"
+	Fader4			FXParam 1 "Hi Freq"
+	Fader3			FXParam 2 "Hi-Mid"
+	Fader3			FXParam 3 "Hi-Mid Freq"
+	Fader2			FXParam 4 "Low-Mid"
+	Fader2			FXParam 5 "Low-Mid Freq"
+	Fader1			FXParam 6 "Low"
+	Fader1			FXParam 7 "Low Freq"
+	Fader7			FXParam 8 "Gain"
+	Fader8			FXParam 9 "Output"
+	Select4		FXParam 10 "Hi Shelf" [ 0 1 ]
+	Select1		FXParam 11 "Low Shelf" [ 0 1 ]
+ZoneEnd

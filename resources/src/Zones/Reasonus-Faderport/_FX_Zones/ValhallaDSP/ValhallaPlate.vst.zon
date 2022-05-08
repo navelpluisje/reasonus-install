@@ -1,0 +1,18 @@
+Zone "VST: ValhallaPlate (Valhalla DSP, LLC)"
+
+	SelectedTrackNavigator
+
+	Fader1				FXParam 0 "Mix"
+	Fader2				FXParam 1 "PreDelay"
+	Fader3				FXParam 2 "Decay"
+	Fader1				FXParam 3 "Size"
+	Fader2				FXParam 4 "Width"
+	Fader8				FXParam 5 "ModRate"
+	Fader8				FXParam 6 "ModDepth"
+	Fader6				FXParam 7 "LowEQFreq"
+	Fader6				FXParam 8 "LowEQGain"
+	Fader7				FXParam 9 "HighEQFreq"
+	Fader7				FXParam 10 "HighEQGain"
+	Fader4				FXParam 11 "Type"
+	Fader5          	 NoAction
+ZoneEnd

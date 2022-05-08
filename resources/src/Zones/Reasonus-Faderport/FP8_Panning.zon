@@ -1,0 +1,17 @@
+//------------------------------------------------------------------------------
+// File:    FP8_Panning.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    What to say about Panning
+//------------------------------------------------------------------------------
+
+Zone "Panning"
+  SelectedTrackNavigator
+
+  RotarySmall       TrackPan
+  RotarySmallPush   Reaper _XENAKIOS_PANTRACKSCENTER // Xenakios/SWS: Pan selected tracks to center
+  ScrollLeftSmall   NoAction
+  ScrollRightSmall  NoAction
+ZoneEnd 

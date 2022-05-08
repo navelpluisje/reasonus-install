@@ -1,0 +1,84 @@
+Zone "VST: ReaEQ (Cockos)" ReaEQ
+  SelectedTrackNavigator
+  Option Shift
+
+  DisplayZone1     FixedTextDisplay "Effect"
+  DisplayEffect1   FixedTextDisplay "ReaEQ"
+
+  Fader1          FXParam 0 "Freq-Band 1"
+  ScribbleLine3_1    FXParamNameDisplay 0 "Freq 1"
+  ScribbleLine4_1 FXParamValueDisplay 0
+
+  Fader1           FXParam 1 "Gain-Band 1"
+  ScribbleLine1_1    FXParamNameDisplay 1 "Gain 1"
+  ScribbleLine2_1 FXParamValueDisplay 1
+
+  Shift+Fader1   FXParam 2 "Q-Band 1"
+  Shift+ScribbleLine3_1    FXParamNameDisplay 2 "Q 1"
+  Shift+ScribbleLine4_1 FXParamValueDisplay 2
+
+  Fader2          FXParam 3 "Freq-Band 2"
+  ScribbleLine3_2    FXParamNameDisplay 3 "Freq 2"
+  ScribbleLine4_2 FXParamValueDisplay 3
+
+  Fader2           FXParam 4 "Gain-Band 2"
+  ScribbleLine1_2    FXParamNameDisplay 4 "Gain 2"
+  ScribbleLine2_2 FXParamValueDisplay 4
+
+  Shift+Fader2   FXParam 5 "Q-Band 2"
+  Shift+ScribbleLine3_2    FXParamNameDisplay 5 "Q 2"
+  Shift+ScribbleLine4_2 FXParamValueDisplay 5
+
+  Fader3          FXParam 6 "Freq-Band 3"
+  ScribbleLine3_3    FXParamNameDisplay 6 "Freq 3"
+  ScribbleLine4_3 FXParamValueDisplay 6
+
+  Fader3           FXParam 7 "Gain-Band 3"
+  ScribbleLine1_3    FXParamNameDisplay 7 "Gain 3"
+  ScribbleLine2_3 FXParamValueDisplay 7
+
+  Shift+Fader3   FXParam 8 "Q-Band 3"
+  Shift+ScribbleLine3_3    FXParamNameDisplay 8 "Q 3"
+  Shift+ScribbleLine4_3 FXParamValueDisplay 8
+
+  Fader4          FXParam 9 "Freq-Band 4"
+  ScribbleLine3_4    FXParamNameDisplay 9 "Freq 4"
+  ScribbleLine4_4 FXParamValueDisplay 9
+
+  Fader4           FXParam 10 "Gain-Band 4"
+  ScribbleLine1_4    FXParamNameDisplay 10 "Gain 4"
+  ScribbleLine2_4 FXParamValueDisplay 10
+
+  Shift+Fader4 FXParam 11 "Q-Band 4"
+  Shift+ScribbleLine3_4    FXParamNameDisplay 11 "Q 4"
+  Shift+ScribbleLine4_4 FXParamValueDisplay 11
+
+  Fader5         FXParam 13 "Wet"
+  ScribbleLine1_5    FXParamNameDisplay 13 "Wet"
+  ScribbleLine2_5 FXParamValueDisplay 13
+
+
+/ Rest all the other stuff
+	Fader6           NoAction
+  ScribbleLine1_4    NoAction
+  ScribbleLine2_4 NoAction
+	Fader7           NoAction
+  ScribbleLine1_7    NoAction
+  ScribbleLine2_7 NoAction
+	Fader8           NoAction
+  ScribbleLine1_8    NoAction
+  ScribbleLine2_8 NoAction
+	Fader5          NoAction
+  ScribbleLine3_5    NoAction
+  ScribbleLine4_5 NoAction
+	Fader6          NoAction
+  ScribbleLine3_6    NoAction
+  ScribbleLine4_6 NoAction
+	Fader7          NoAction
+  ScribbleLine3_7    NoAction
+  ScribbleLine4_7 NoAction
+	Fader8          NoAction
+  ScribbleLine3_8    NoAction
+  ScribbleLine4_8 NoAction
+
+ZoneEnd

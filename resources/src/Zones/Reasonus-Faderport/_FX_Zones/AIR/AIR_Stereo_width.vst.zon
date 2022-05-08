@@ -1,0 +1,25 @@
+Zone "VST: AIR StereoWidth (AIR Music Technology)"
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Mode"
+	Fader1			FXParam 1 "Width"
+	Fader2			FXParam 2 "Low"
+	Select2		FXParam 2 "Low" [ 0.5 ]
+	Fader2			FXParam 2 "Low"
+	Fader3			FXParam 3 "Mid"
+	Select3		FXParam 3 "Mid" [ 0.5 ]
+	Fader3			FXParam 3 "Mid"
+	Fader4			FXParam 4 "High"
+	Select4		FXParam 4 "High"  [ 0.5 ]
+	Fader4			FXParam 4 "High"
+	Fader5			FXParam 5 "Delay"
+	Fader5			FXParam 5 "Delay"
+	Fader7			FXParam 6 "Level Trim"
+	Select7		FXParam 6 "Level Trim" [ 0.5 ]
+	Fader8			FXParam 7 "Pan Trim"
+	Select8		FXParam 7 "Pan Trim" [ 0.5 ]
+	Fader6			NoAction
+	Fader7			NoAction
+	Fader8			NoAction
+ZoneEnd

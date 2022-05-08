@@ -1,0 +1,18 @@
+Zone "VST: AIR Distortion (AIR Music Technology)"
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 1 "Pre Shape"
+	Fader2			FXParam 2 "Drive"
+	Select1		FXParam 7 "Stereo" [ 0 1 ]
+
+	Fader3			FXParam 0 "Mode"
+	Fader4			FXParam 5 "High Cut"
+
+	Fader5			FXParam 4 "DC Bias"
+	Fader6			FXParam 6 "Output"
+
+	Fader7			FXParam 3 "Threshold"
+	
+  Fader8			FXParam 8 "Mix"
+ZoneEnd

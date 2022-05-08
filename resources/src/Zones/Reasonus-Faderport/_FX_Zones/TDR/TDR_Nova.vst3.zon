@@ -1,0 +1,110 @@
+Zone "VST3: TDR Nova (Tokyo Dawn Labs)"
+/Faders for band gain
+/knobs for frequency
+/shift+knobs for Q.
+/no dynamics controls
+
+	SelectedTrackNavigator
+	Option Shift
+
+/band 1	
+	Select1			FXParam 1 "Band 1 Active"	[ 0 1 ]
+	Fader1				FXParam 2 "Band 1 Gain"
+	Shift+Fader1		FXParam 3 "Band 1 Q"
+	Fader1				FXParam 4 "Band 1 Frequency"
+	Shift+Select1	FXParam 5 "Band 1 Type" [ 0 0.5 1 ]
+	FXParam 6 "Band 1 Dyn"
+	FXParam 7 "Band 1 Threshold"
+	FXParam 8 "Band 1 Ratio"
+	FXParam 9 "Band 1 Split"
+	FXParam 10 "Band 1 Attack"
+	FXParam 11 "Band 1 Release"
+	
+/band 2	
+	Select2			FXParam 13 "Band 2 Active" [ 0 1 ]
+	Fader2				FXParam 14 "Band 2 Gain"
+	Shift+Fader2		FXParam 15 "Band 2 Q"
+	Fader2				FXParam 16 "Band 2 Frequency"
+	Shift+Select2	FXParam 17 "Band 2 Type"  [ 0 0.5 1 ]
+	FXParam 18 "Band 2 Dyn"
+	FXParam 19 "Band 2 Threshold"
+	FXParam 20 "Band 2 Ratio"
+	FXParam 21 "Band 2 Split"
+	FXParam 22 "Band 2 Attack"
+	FXParam 23 "Band 2 Release"
+	
+/band 3	
+	
+	Select3			FXParam 25 "Band 3 Active" [ 0 1 ]
+	Fader3				FXParam 26 "Band 3 Gain"
+	Shift+Fader3		FXParam 27 "Band 3 Q"
+	Fader3				FXParam 28 "Band 3 Frequency"
+	Shift+Select3	FXParam 29 "Band 3 Type"  [ 0 0.5 1 ]
+	FXParam 30 "Band 3 Dyn"
+	FXParam 31 "Band 3 Threshold"
+	FXParam 32 "Band 3 Ratio"
+	FXParam 33 "Band 3 Split"
+	FXParam 34 "Band 3 Attack"
+	FXParam 35 "Band 3 Release"
+	
+/band 4	
+	
+	Select4			FXParam 37 "Band 4 Active" [ 0 1 ]
+	Fader4				FXParam 38 "Band 4 Gain"
+	Shift+Fader4		FXParam 39 "Band 4 Q"
+	Fader4				FXParam 40 "Band 4 Frequency"
+	Shift+Select4	FXParam 41 "Band 4 Type"  [ 0 0.5 1 ]
+	FXParam 42 "Band 4 Dyn" 
+	FXParam 43 "Band 4 Threshold"
+	FXParam 44 "Band 4 Ratio"
+	FXParam 45 "Band 4 Split"
+	FXParam 46 "Band 4 Attack"
+	FXParam 47 "Band 4 Release"
+	
+/Filters	
+	FXParam 48 "HP Selected"
+	Select5			FXParam 49 "HP Active" [ 0 1 ]
+	Fader5				FXParam 50 "HP Frequency"
+	Fader5				FXParam 51 "HP Type"
+	FXParam 52 "LP Selected"
+	Select6			FXParam 53 "LP Active" [ 0 1 ]
+	Fader6				FXParam 54 "LP Frequency"
+	Fader6				FXParam 55 "LP Type"
+	
+/Master	
+	FXParam 56 "Wide Band Gain"
+	FXParam 57 "Wide Band Dyn"
+	FXParam 58 "Wide Band Threshold"
+	FXParam 59 "Wide Band Ratio"
+	FXParam 60 "Wide Band Attack"
+	FXParam 61 "Wide Band Release"
+	FXParam 62 "Master bypass"
+	FXParam 63 "Dynamic delta"
+	Fader7				FXParam 64 "Dry Mix"
+	Fader8				FXParam 65 "Output Gain"
+	FXParam 66 "EQ Auto Gain"
+	FXParam 67 "Quality"
+	FXParam 68 "Channels"
+	FXParam 69 "Analyzer Mode"
+	FXParam 70 "Display EQ Range"
+	FXParam 71 "Display FFT Floor"
+	FXParam 72 "Sidechain Mode"
+
+/Selection -- when Freq knob is moved the band is selected and other are unselected
+	Fader1 			FXParam 0 "Band 1 selected"  [ 1 ]
+	Fader1 			FXParam 12 "Band 2 selected" [ 0 ]
+	Fader1 			FXParam 24 "Band 3 selected" [ 0 ]
+	Fader1 			FXParam 36 "Band 4 selected" [ 0 ]
+	Fader2 			FXParam 12 "Band 2 selected" [ 1 ]
+	Fader2 			FXParam 0 "Band 1 selected"  [ 0 ]
+	Fader2 			FXParam 24 "Band 3 selected" [ 0 ]
+	Fader2 			FXParam 36 "Band 4 selected" [ 0 ]
+	Fader3  			FXParam 24 "Band 3 selected" [ 1 ]
+	Fader3  			FXParam 0 "Band 1 selected"  [ 0 ]
+	Fader3  			FXParam 12 "Band 2 selected" [ 0 ]
+	Fader3  			FXParam 36 "Band 4 selected" [ 0 ]
+	Fader4 			FXParam 36 "Band 4 selected" [ 1 ]
+	Fader4 			FXParam 0 "Band 1 selected"  [ 0 ]
+	Fader4 			FXParam 12 "Band 2 selected" [ 0 ]
+	Fader4 			FXParam 24 "Band 3 selected" [ 0 ]
+ZoneEnd

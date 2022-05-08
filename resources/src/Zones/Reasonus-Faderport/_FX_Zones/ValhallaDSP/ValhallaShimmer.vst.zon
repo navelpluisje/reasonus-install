@@ -1,0 +1,17 @@
+Zone "VST: ValhallaShimmer (Valhalla DSP, LLC)"
+
+	SelectedTrackNavigator
+
+	Fader1				FXParam 0 "wetDry"
+	Fader2				FXParam 1 "shift"
+	Fader3				FXParam 2 "feedback"
+	Fader4				FXParam 3 "diffusion"
+	Fader5				FXParam 4 "size"
+	Fader5				FXParam 5 "lowCut"
+	Fader6				FXParam 6 "highCut"
+	Fader7				FXParam 7 "modRate"
+	Fader8				FXParam 8 "modDepth"
+	Fader1				FXParam 9 "reverbMode" [ (0.003) ]
+	Fader2				FXParam 10 "shiftMode" [ (0.003) ]
+	Fader3				FXParam 11 "colorMode" [ 0.5 1.0 ]
+ZoneEnd

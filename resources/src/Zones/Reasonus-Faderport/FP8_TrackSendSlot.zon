@@ -1,0 +1,62 @@
+//------------------------------------------------------------------------------
+// File:    FP8_TrackSendSlot.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    euCon style strack send management
+//------------------------------------------------------------------------------
+
+Zone "TrackSendSlot"
+  TrackSendSlotNavigator
+
+  ScribbleLine1_|         NoAction
+  ScribbleLine1_1         FixedTextDisplay "Sends"
+  ScribbleLine2_|         TrackNameDisplay
+  ScribbleLine3_|         TrackSendNameDisplay
+  ScribbleLine4_|         TrackSendVolumeDisplay
+
+  Shift+ScribbleLine1_|   TrackNameDisplay
+  Shift+ScribbleLine2_|   TrackSendNameDisplay
+  Shift+ScribbleLine3_|   TrackSendVolumeDisplay
+  Shift+ScribbleLine4_|   TrackSendPrePostDisplay
+
+  ValueBar|               TrackSendPan
+
+  Select|                 TrackUniqueSelect  { 20 20 0 255 255 0 }
+  Hold+Select|            Reaper 40293 // Track: View routing and I/O for current/last touched track
+
+  Fader|                  TrackSendVolume
+  Solo|                   TrackSendPrePost
+  Shift+Solo|             TrackSendInvertPolarity
+  Mute|                   TrackSendMute
+  Fader|                  TrackSendVolume
+  Shift+Fader|            TrackSendPan
+
+
+  RotarySmall             NoAction  
+  RotarySmallPush         NoAction
+  ScrollLeftSmall         SendSlotBank "-1"
+  ScrollRightSmall        SendSlotBank "1"
+
+// ===========================================
+// TRACK NAVIGATION
+// ===========================================
+  Track                   NoAction
+  Track                   GoZone "Home"
+
+  Plugin                  NoAction
+  Plugin                  GoZone "Home"
+  Plugin                  MapSelectedTrackFXToMenu
+  Shift+Plugin            MapTrackFXMenusSlotToWidgets
+  
+  Send                    Reaper %dummyAction%    // Dummy Action
+  Send                    GoZone "Home"
+  Send                    MapSelectedTrackSendsToWidgets
+  
+  Pan                     NoAction
+  Pan                     GoZone "Home"
+  Pan                     MapSelectedTrackReceivesToWidgets
+  Shift+Pan               MapTrackReceivesSlotToWidgets
+
+ZoneEnd

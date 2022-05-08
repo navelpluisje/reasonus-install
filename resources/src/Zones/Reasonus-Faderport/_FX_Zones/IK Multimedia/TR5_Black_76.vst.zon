@@ -1,0 +1,16 @@
+Zone "VST: TR5 Black 76 (IK Multimedia)" 
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Input Gain"
+	Fader4			FXParam 1 "Output Gain"
+	Fader1			FXParam 2 "Ratio"
+	Select1		FXParam 2 "Ratio" [ 0 0.25 0.5 0.75 1.0 ]
+	Fader2			FXParam 3 "Attack"
+	Fader3			FXParam 4 "Release"
+	Fader4			NoAction
+	Fader5			NoAction
+	Fader6			NoAction
+	Fader7			NoAction
+	Fader8			NoAction
+	
+ZoneEnd

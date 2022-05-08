@@ -5,7 +5,7 @@
   "description": "My Electron application description",
   "main": ".webpack/main",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "ELECTRON_IS_DEVS=true electron-forge start",
     "package": "electron-forge package --arch=x64 --platform=win32",
     "make": "electron-forge make",
     "publish": "electron-forge publish",

@@ -1,0 +1,48 @@
+//------------------------------------------------------------------------------
+// File:    FP8_Automation.zon 
+// Author:  Erwin Goossen<erwin@navelpluisje.nl>
+// Version: 1.0.0
+//------------------------------------------------------------------------------
+// Description:
+//    File contains handling the track and Global Automation functionality
+//    Also Save, Undo and Redo are working
+//    User Actions are not yet implemented
+//------------------------------------------------------------------------------
+
+Zone "Automation"
+  SelectedTrackNavigator
+
+// ===========================================
+// TRACK AUTOMATION
+// ===========================================
+  Latch           TrackAutoMode 4     { 5 0 20 53 0 255 } // Latch
+  Hold+Latch      TrackAutoMode 5 	  { 0 5 20 0 55 255 } // Latch Preview
+  Trim            TrackAutoMode 0     { 20 20 20 255 255 255 }  // Trim
+  Touch           TrackAutoMode 2     { 20 20 0 255 255 0 } // Touch
+  Write           TrackAutoMode 3     { 20 0 0 255 0 0 }
+  Read            TrackAutoMode 1     { 0 20 0 0 255 0 }
+  Off             NoAction
+
+  
+// ===========================================
+// GLOBAL AUTOMATION
+// ===========================================
+  Option+Latch    GlobalAutoMode 4    { 5 0 20 53 0 255 } // Latch
+  Option+Off      GlobalAutoMode 5    { 0 5 20 0 55 255 } // Latch Preview
+  Option+Trim     GlobalAutoMode 0    { 20 20 20 255 255 255 }  // Trim
+  Option+Touch    GlobalAutoMode 2    { 20 20 0 255 255 0 } // Touch
+  Option+Write    GlobalAutoMode 3    { 20 0 0 255 0 0 }
+  Option+Read     GlobalAutoMode 1    { 0 20 0 0 255 0 }
+  Hold+Off        Reaper 40876        { 20 20 20 255 255 255 } // Global automation override: No override (set automation modes per track)
+
+  
+// ===========================================
+// ACTIONS
+// ===========================================
+  Shift+Latch     Reaper 40897        { 0 20 0 0 20 0 }  // File: Save all projects
+  Shift+Trim      Reaper 40030        { 0 5 20 0 5 20 }  // Edit: Redo
+  Shift+Off       Reaper 40029        { 0 5 20 0 5 20 }  // Edit: Undo
+  Shift+Touch     NoAction
+  Shift+Write     NoAction
+  Shift+Read      NoAction
+ZoneEnd  

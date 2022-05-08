@@ -1,0 +1,18 @@
+Zone "VST: TR5 Classic Comp (IK Multimedia)"
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Side Chain HPF"
+	Fader2			FXParam 1 "Attack Time"
+	Fader3			FXParam 2 "Release Time"
+	Fader4			FXParam 3 "Stereo Enhancement"
+	Fader1			FXParam 4 "Ratio"
+	Fader2			FXParam 5 "Input Drive"
+	Fader3			NoAction
+	Fader4			NoAction
+	Fader5			NoAction
+	Fader6			NoAction
+	Fader7			NoAction
+	Fader8			FXParam 6 "Output"
+
+ZoneEnd

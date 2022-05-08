@@ -1,0 +1,15 @@
+Zone "VST: TB_EZQ_v3 (ToneBoosters)"
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 0 "Brightns"
+	Fader2			FXParam 1 "Tinnines"
+	Select1		FXParam 2 "On/off" [ 0 1 ]
+	Select2		FXParam 3 "Bypass" [ 0 1 ]
+	Fader3			FXParam 4 "Wet"
+	Fader4			NoAction
+	Fader5			NoAction
+	Fader6			NoAction
+	Fader7			NoAction
+	Fader8			NoAction
+ÎZoneEnd

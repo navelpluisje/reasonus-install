@@ -1,0 +1,21 @@
+Zone "VST3: Parallel Aggressor (BABY Audio)"
+
+	SelectedTrackNavigator
+
+	Fader1			FXParam 1 "Spank Intensity"
+	Fader2			FXParam 2 "Spank Level"
+	Fader3			FXParam 3 "Dry Level"
+	Fader4			FXParam 4 "Heat Level"
+	Fader5			FXParam 5 "Heat Intensity"
+	Fader6			FXParam 6 "Solo"
+	Fader7			NoAction
+	Fader8			NoAction
+	Fader1			FXParam 7 "Punchy Mode"
+	Fader2			FXParam 8 "Smack Mode"
+	Fader3			FXParam 9 "Spank SC Filter"
+	Fader4			FXParam 10 "Spank Mono"
+	Fader5			FXParam 15 "Extra Hot"
+	Fader6			FXParam 16 "Heat Tone"
+	Fader7			FXParam 17 "Heat Hpf"
+	Fader8			FXParam 18 "Heat Lpf"
+ZoneEnd
