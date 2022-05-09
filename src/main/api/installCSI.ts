@@ -1,3 +1,4 @@
+import { app } from 'electron';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
@@ -8,10 +9,11 @@ import { settings } from '../../utils/settings';
 
 export const installCSI = () => {
   let fileName = '';
+  const userDataPath = app.getPath('userData');
   const newLine = os.platform() === 'win32' ? '\r\n' : '\n';
   const reaperPath = settings.get('reaperPath') as string;
 
-  const srcDir = path.join(__dirname, 'resources', 'Csurf');
+  const srcDir = path.join(userDataPath, 'resources', 'Csurf');
   const pluginDir = path.join(reaperPath, 'UserPlugins');
   const iniDir = path.join(reaperPath, 'CSI');
 

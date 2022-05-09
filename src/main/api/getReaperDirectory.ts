@@ -16,5 +16,4 @@ export const getReaperDirectory = async (browserWindow: Electron.BrowserWindow) 
     settings.set('reaperPath', filePaths[0]);
     return filePaths[0];
   }
-
 };

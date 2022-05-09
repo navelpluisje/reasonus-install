@@ -1,3 +1,4 @@
+import { app } from 'electron';
 import fs from 'fs';
 import path from 'path';
 
@@ -30,11 +31,12 @@ const faderPortZoneFiles = [
 ];
 
 export const installReasonus = (actionId: string) => {
+  const userDataPath = app.getPath('userData');
   const reaperPath = settings.get('reaperPath') as string;
 
   // Copy the surface file
   copyFile(path.join(
-    __dirname, 'resources', 'CSI', 'Surfaces', 'Midi',
+    userDataPath, 'resources', 'CSI', 'Surfaces', 'Midi',
   ),
   path.join(
     reaperPath, 'CSI', 'Surfaces', 'Midi',
@@ -44,7 +46,7 @@ export const installReasonus = (actionId: string) => {
   // Modify the files with the always on action
   for (const zoneFile of faderPortZoneFiles) {
     const fileName = path.join(
-      __dirname, 'resources', 'CSI', 'Zones', 'Reasonus-FaderPort', zoneFile,
+      userDataPath, 'resources', 'CSI', 'Zones', 'Reasonus-FaderPort', zoneFile,
     );
     if (!fs.existsSync(fileName)) {
       continue;
