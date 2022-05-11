@@ -24,7 +24,7 @@ export const Install = () => {
   }, []);
 
   const copyActions = () => {
-    if (!window.reasonusAPI.copyBaseActions()) {
+    if (!window.reasonusAPI.installActions()) {
       new Notification('Error while copying the actions');
     }
     setStep(step + 1);

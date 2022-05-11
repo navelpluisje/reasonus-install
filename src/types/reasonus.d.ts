@@ -6,7 +6,7 @@ export declare global {
       selectFolder: () => Promise<string>;
       getReaperPath: () => Promise<string>;
       getDummyAction: () => Promise<string>;
-      copyBaseActions: () => Promise<boolean>;
+      installActions: () => Promise<boolean>;
       installReaSonus: (dummyId: string) => Promise<void>;
       getFunctionActions: () => Promise<Record<string, string>>
       saveFunctionActions: (functionActions: FunctionActions) => Promise<boolean>

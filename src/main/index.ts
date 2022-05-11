@@ -6,11 +6,11 @@ import path from 'path';
 import { FunctionActions } from '../types';
 import { isDev } from '../utils/isDev';
 import { settings } from '../utils/settings';
-import { copyBaseActions } from './api/copyBaseActions';
 import { downloadFiles } from './api/downloadFiles';
 import { getFunctionActions } from './api/getFunctionActions';
 import { getInitialReaperDirectory } from './api/getInitialReaperDirectory';
 import { getReaperDirectory } from './api/getReaperDirectory';
+import { installActions } from './api/installActions';
 import { installCSI } from './api/installCSI';
 import { installReasonus } from './api/installReaSonus';
 import { setFunctionActions } from './api/setFunctionActions';
@@ -69,7 +69,6 @@ const createWindow = (): void => {
 
 ipcMain.handle('dialog:openDirectory', async () => await getReaperDirectory(mainWindow));
 ipcMain.handle('settings:setReaperPath', (_, path: string) => {
-  console.log(path);
   settings.set('reaperPath', path);
 });
 ipcMain.handle('settings:getReaperPath', () => settings.get('reaperPath'));
@@ -82,8 +81,8 @@ ipcMain.handle('global:getInitialReaperPath', () => getInitialReaperDirectory())
 
 ipcMain.handle('navigate:goTo', (_, url: string) => shell.openExternal(url));
 
-ipcMain.handle('reasonus:copyBaseActions', () => { 
-  if (!copyBaseActions()) {
+ipcMain.handle('reasonus:installActions', () => { 
+  if (!installActions()) {
     return false;
   }
   if (!installCSI()) {

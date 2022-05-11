@@ -34,7 +34,6 @@ export const installCSI = () => {
     fs.writeFileSync(path.join(iniDir, 'CSI.ini'), ini);
   }
 
-  
   if (os.platform() === 'darwin') {
     fileName = 'reaper_csurf_integrator.dylib';
   }

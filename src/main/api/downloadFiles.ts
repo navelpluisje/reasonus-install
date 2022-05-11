@@ -14,7 +14,6 @@ export const downloadFiles = async () => {
       {
         extract: true,
       });
-    console.log('Downloaded resources');
   } catch (e) {
     console.log('Error while downloading', e);
   }
