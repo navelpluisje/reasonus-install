@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Input = styled.input`
+interface Props {
+  large?: boolean;
+}
+
+export const Input = styled.input<Props>`
   background-color: hsla(177, 100%, 34%, 0.6);
   border: 1px solid white;
   border-radius: .5rem;
@@ -9,6 +13,7 @@ export const Input = styled.input`
   font-weight: 400;  
   padding: .5rem 1rem;
   position: relative;
+  width: ${({large}) => (large ? '30rem' : 'auto')};
 
   &::placeholder {
     color: rgba(255, 255, 255, .75);

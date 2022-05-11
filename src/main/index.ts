@@ -1,4 +1,4 @@
-import { app, BrowserWindow, clipboard, ipcMain, shell } from 'electron';
+import { app, BrowserWindow, ipcMain, shell } from 'electron';
 import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer';
 import os from 'os';
 import path from 'path';
@@ -9,6 +9,7 @@ import { settings } from '../utils/settings';
 import { copyBaseActions } from './api/copyBaseActions';
 import { downloadFiles } from './api/downloadFiles';
 import { getFunctionActions } from './api/getFunctionActions';
+import { getInitialReaperDirectory } from './api/getInitialReaperDirectory';
 import { getReaperDirectory } from './api/getReaperDirectory';
 import { installCSI } from './api/installCSI';
 import { installReasonus } from './api/installReaSonus';
@@ -75,9 +76,9 @@ ipcMain.handle('settings:getReaperPath', () => settings.get('reaperPath'));
 ipcMain.handle('settings:getDummyAction', () => settings.get('dummyAction'));
 ipcMain.handle('settings:getFunctionActions', () => settings.get('functionActions'));
 
-ipcMain.handle('globale:getOS', () => os.platform());
-ipcMain.handle('globale:copyToClipboard', (_, text: string) => clipboard.writeText(text));
-ipcMain.handle('globale:downloadFiled', downloadFiles);
+ipcMain.handle('global:getOS', () => os.platform());
+ipcMain.handle('global:downloadFiles', downloadFiles);
+ipcMain.handle('global:getInitialReaperPath', () => getInitialReaperDirectory());
 
 ipcMain.handle('navigate:goTo', (_, url: string) => shell.openExternal(url));
 

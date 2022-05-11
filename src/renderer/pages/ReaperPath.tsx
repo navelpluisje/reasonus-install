@@ -1,18 +1,26 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 
 import { Button } from '../components/atoms/Button';
-import { ClipboardButton } from '../components/atoms/ClipboardButton';
 import { ContentHeader } from '../components/atoms/ContentHeader';
 import { Input } from '../components/atoms/Input';
 import { Key } from '../components/atoms/Key';
-import { Pre } from '../components/atoms/Pre';
-import { CodeBlock } from '../components/molecules/CodeBlock';
 import { useAppDispatch } from '../store/hooks';
 import { setReaperPath } from '../store/settings';
 
 export const ReaperPath = () => {
   const dispatch = useAppDispatch();
   const [path, setPath] = useState('');
+  const [hasInitPath, setHasInitPath] = useState(false);
+
+
+  useEffect(() => {
+    const getPath = async () => {
+      const reaperPath = await window.reasonusAPI.getInitialReaperPath();
+      setHasInitPath(reaperPath !== '');
+      setPath(reaperPath);
+    };
+    getPath();
+  }, []);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPath(event.target.value);
@@ -25,10 +33,6 @@ export const ReaperPath = () => {
     }
   };
 
-  const copyToClipboard = () => {
-    window.reasonusAPI.copyToClipboard('local path = reaper.GetResourcePath()\nreaper.ShowConsoleMsg("Path: " .. path)');
-  };
-
   const savePath = () => {
     window.reasonusAPI.setReaperPath(path);
     dispatch(setReaperPath(path));
@@ -39,23 +43,31 @@ export const ReaperPath = () => {
       <ContentHeader>Set your REAPER path</ContentHeader>
       <div>
         <p>
-          To make ReaSonus work, the path to the REAPER resource path is needed. Then the files can be installed in the correct path. This can be done in 2 ways:
+          To make ReaSonus work, the path to the REAPER resource path is needed. Then the files can be installed in the correct path.
         </p>
-        <h2>Create action to get the path</h2>
-        <ul>
-          <li>Open REAPER</li>
-          <li>Go to <Key>Actions</Key> &#8680; <Key>Show Action List</Key></li>
-          <li>Select <Key>New action&hellip;</Key> &#8680; <Key>New ReaScript&hellip;</Key></li>
-          <li>Give the script a name and click <Key>Save</Key></li>
-          <li>Paste the next code into the editor and click <Key>Start</Key>. A popup should appear with the path.
-            <CodeBlock>
-              {`local path = reaper.GetResourcePath()
-reaper.ShowConsoleMsg("Path: " .. path)`}
-            </CodeBlock>
-          </li>
-          <li>Copy the path and paste it in the input</li>
-        </ul>
-        <p><Input placeholder='Paste here' value={path} onChange={handleChange} /><Button type="button" onClick={(savePath)}>Save</Button></p>
+        {hasInitPath ? (
+          <>
+            <h2>We found Reaper</h2>
+            <p>It looks like we found the location of your REAPER recources folder. You can check the path if you want here. If this is correct, click <Key>Save</Key>. Otherwise you can alter the path</p>
+            <p><Input large placeholder='Paste here' value={path} onChange={handleChange} /><Button type="button" onClick={(savePath)}>Save</Button></p>
+          </>
+        ) : (
+          <>
+            <h2>Not able to find the path</h2>
+            <p>
+              We were not able to determine the location of your REAPER resources. You can set the path by enetering it in the input field, or click the <Key>Select the REAPER path</Key> to find it with {'fileBrowser'}
+            </p>
+            <p>
+              Within the documentation is also an explanation about how to get the path with an action (which you have to create yourself 😝)
+            </p>
+            <p><Input large placeholder='Paste here' value={path} onChange={handleChange} /><Button type="button" onClick={(savePath)}>Save</Button></p>
+
+            <p>
+              <Button type="button" onClick={openFolderDialog}>Select the REAPER path</Button>
+            </p>
+          </>
+        )
+        }
       </div>
     </>
   );

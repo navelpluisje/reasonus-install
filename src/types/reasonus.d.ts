@@ -15,6 +15,7 @@ export declare global {
       setReaperPath: (path: string) => Promise<void>,
       copyToClipboard: (text: string) => Promise<viod>
       downloadFiles: () => Promise<viod>
+      getInitialReaperPath: () => Promise<string>
     };
 	}
 }

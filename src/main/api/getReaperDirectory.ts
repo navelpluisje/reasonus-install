@@ -5,6 +5,7 @@ import { settings } from '../../utils/settings';
 export const getReaperDirectory = async (browserWindow: Electron.BrowserWindow) => {
   const { canceled, filePaths } = await dialog.showOpenDialog(browserWindow, {
     defaultPath: app.getPath('appData'),
+    message: 'Select the REAPER resource path',
     properties: [
       'openDirectory',
       'showHiddenFiles',
