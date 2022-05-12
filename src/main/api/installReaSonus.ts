@@ -30,7 +30,8 @@ const faderPortZoneFiles = [
   'FP8_Transport.zon',
 ];
 
-export const installReasonus = (actionId: string) => {
+export const installReasonus = () => {
+  const actionId = '_REASONUS_ALWAYS_ON';
   const userDataPath = app.getPath('userData');
   const reaperPath = settings.get('reaperPath') as string;
 

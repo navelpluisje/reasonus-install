@@ -6,8 +6,8 @@ export declare global {
       selectFolder: () => Promise<string>;
       getReaperPath: () => Promise<string>;
       getDummyAction: () => Promise<string>;
-      installActions: () => Promise<boolean>;
-      installReaSonus: (dummyId: string) => Promise<void>;
+      installActions: (midiInput: string, midiOutput: string) => Promise<boolean>;
+      installReaSonus: () => Promise<void>;
       getFunctionActions: () => Promise<Record<string, string>>
       saveFunctionActions: (functionActions: FunctionActions) => Promise<boolean>
       goToExternal: (url: string) => Promise<void>
@@ -16,6 +16,7 @@ export declare global {
       copyToClipboard: (text: string) => Promise<viod>
       downloadFiles: () => Promise<viod>
       getInitialReaperPath: () => Promise<string>
+      getMidiDevices: () => Promise<MidiDevices>
     };
 	}
 }

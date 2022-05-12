@@ -9,6 +9,7 @@ import { settings } from '../utils/settings';
 import { downloadFiles } from './api/downloadFiles';
 import { getFunctionActions } from './api/getFunctionActions';
 import { getInitialReaperDirectory } from './api/getInitialReaperDirectory';
+import { getMidiDevices } from './api/getMidiDevices';
 import { getReaperDirectory } from './api/getReaperDirectory';
 import { installActions } from './api/installActions';
 import { installCSI } from './api/installCSI';
@@ -75,26 +76,25 @@ ipcMain.handle('settings:getReaperPath', () => settings.get('reaperPath'));
 ipcMain.handle('settings:getDummyAction', () => settings.get('dummyAction'));
 ipcMain.handle('settings:getFunctionActions', () => settings.get('functionActions'));
 
-ipcMain.handle('global:getOS', () => os.platform());
+ipcMain.handle('global:getOS', os.platform);
 ipcMain.handle('global:downloadFiles', downloadFiles);
-ipcMain.handle('global:getInitialReaperPath', () => getInitialReaperDirectory());
+ipcMain.handle('global:getInitialReaperPath', getInitialReaperDirectory);
 
 ipcMain.handle('navigate:goTo', (_, url: string) => shell.openExternal(url));
 
-ipcMain.handle('reasonus:installActions', () => { 
+ipcMain.handle('reasonus:getMidiDevices', getMidiDevices);
+
+ipcMain.handle('reasonus:installActions', (_, midiInput: string, midiOutput: string) => { 
   if (!installActions()) {
     return false;
   }
-  if (!installCSI()) {
+  if (!installCSI(midiInput, midiOutput)) {
     return false;
   }
   return true;
 });
   
-ipcMain.handle('reasonus:install', (_, actionId: string) => {
-  settings.set<string>('dummyAction', actionId);
-  installReasonus(actionId);
-});
+ipcMain.handle('reasonus:install', installReasonus);
   
 ipcMain.handle('reasonus:saveFunctionActions', (_, functionActions: FunctionActions) => {
   settings.set('functionActions', functionActions);

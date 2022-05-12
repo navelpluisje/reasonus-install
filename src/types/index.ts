@@ -7,5 +7,6 @@ export type FunctionActions = {
 export interface Action {
   fileName: string;
   displayName: string;
+  actionId: string;
   register: boolean;
 }

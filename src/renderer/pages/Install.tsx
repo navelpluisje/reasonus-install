@@ -1,102 +1,83 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 
-import addAction from '../assets/images/add-action.png';
-import copyActionId from '../assets/images/copy-action-id.png';
+import { MidiDevices } from '../../main/api/getMidiDevices';
+import faderport from '../assets/images/faderport8.png';
 import { Button } from '../components/atoms/Button';
 import { ContentHeader } from '../components/atoms/ContentHeader';
-import { Input } from '../components/atoms/Input';
+import { MidiDivices } from '../components/atoms/MidiDivices';
+import { MidiSelect } from '../components/molecules/MidiSelect';
 
 export const Install = () => {
-  const [dummyId, setDummyId] = useState<string | null>(); 
-  const [done, setDone] = useState(false);
-  const [step, setStep] = useState(0);
+  const [midiDevices, setMidiDevices] = useState<MidiDevices>({} as MidiDevices);
+  const [midiInput, setMidiInput] = useState('0');
+  const [midiOutput, setMidiOutput] = useState('0');
 
   useEffect(() => {
     const getActionId = async () => {
       await window.reasonusAPI.downloadFiles();
-      const id = await window.reasonusAPI.getDummyAction();
-      if (id) {
-        setDone(true);
-        setDummyId(id);
-      }
+      const devices = await window.reasonusAPI.getMidiDevices();
+      setMidiDevices(devices);
     };
     getActionId();
   }, []);
 
-  const copyActions = () => {
-    if (!window.reasonusAPI.installActions()) {
-      new Notification('Error while copying the actions');
+  useEffect(() => {
+    if (midiDevices?.in && midiDevices.in.length) {
+      setMidiInput(midiDevices.in[0].id);
     }
-    setStep(step + 1);
-  };
+    if (midiDevices?.out && midiDevices.out.length) {
+      setMidiOutput(midiDevices.out[0].id);
+    }
+
+  }, [midiDevices]);
 
   const installReaSonus = () => {
-    if (!window.reasonusAPI.installReaSonus(dummyId)) {
+    if (!window.reasonusAPI.installActions(midiInput, midiOutput)) {
+      new Notification('Error while copying the actions');
+    }
+    if (!window.reasonusAPI.installReaSonus()) {
       new Notification('Error while installing ReaSonus');
     }
-    setStep(step + 1);
   }; 
 
-  const change = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setDummyId(value);
-  };
+  const handleMidiInputChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    setMidiInput(event.target.value);
+  };  
+
+  const handleMidiOutputChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    setMidiOutput(event.target.value);
+  };  
 
   return (
     <div>
       <ContentHeader>Prepare the FaderPort</ContentHeader>
-      {step === 0 && !done && (
-        <>
-          <p>
-            These steps will help you install Reasonus FaderPort. If steps are not clear, please check out the documentation. There is a more extensive description over there.
-          </p>
-          <p>
-            In the first step we copy CSI and the needed actions to REAPER<br /><br />
-          </p>
-          <div>
-            <Button type="button" onClick={copyActions}>Copy CSI and actions</Button>
-          </div>
-        </>
-      )}
-      {step === 1 && !done && (
-        <>
-          <p>
-            If REAPER is already opened, restart it. Then:
-          </p>
-          <ul>
-            <li>
-              Open the actions list in REAPER.
-            </li>
-            <li>Click [new action...] and [Load ReaScript...]</li>
-          </ul>
-          <img src={addAction} alt="" />
-          <ul>
-            <li>Select the action 'always-on.lua' from the folder <br /> <code>&lt;REAPER-FOLDER&gt;/Scripts/ReaSonus</code>.<br />
-              There are more actions in this folder, but we'll use these later on.</li>
-          </ul>
-          <div>
-            <Button type="button" onClick={() => { setStep(step + 1); }}>Next step</Button>
-          </div>
-        </>
-      )}
-      {step === 2 && !done && (
-        <>
-          <p>Copy the action Id by right clicking the action and select 'Copy selected action command ID'.</p>
-          <p>Paste the Id below and click Install.</p>
-          <img src={copyActionId} alt="" />
-          <p>
-            <Input onChange={change} value={dummyId} placeholder="Paste your actionId here" />
-            <Button type="button" onClick={installReaSonus} disabled={!dummyId}>Install ReaSonus</Button>
-          </p>
-        </>
-      )}
-      {(step === 3 || done) && (
-        <>
-          <p>ReaSonus is installed properly and you're now able to use your FaderPort with REAPER</p>
-          <p>In the Functions menu you can set actions to the function keys</p>
-          <p>In the Mix navigation menu you can set actions to the mix navigation keys</p>
-        </>
-      )}
+      <p>
+        We made the install of the FaderPort as easy as possible. The only thing you have to do is check if we selected the correct midi device for you. 
+        If there's only one, your lucky. Are there more, select you midi devices below (we only show you the available FaderPorts).
+      </p>
+      <MidiDivices>
+        <span>
+          {midiDevices?.in && midiDevices.in.length && (
+            <MidiSelect label="Midi in" id="midi-in" onChange={handleMidiInputChange} value={midiInput}>
+              {midiDevices.in.map((device) => (
+                <option value={device.id} key={device.id}>{device.fullName}</option>
+              ))}
+            </MidiSelect>
+          )}
+          {midiDevices?.out && midiDevices.out.length && (
+            <MidiSelect label="Midi out" id="midi-out" onChange={handleMidiOutputChange} value={midiOutput}>
+              {midiDevices.in.map((device) => (
+                <option value={device.id} key={device.id}>{device.fullName}</option>
+              ))}
+            </MidiSelect>
+          )}
+        </span>
+        <img style={{maxHeight: '20rem', maxWidth:'75%'}} src={faderport} />
+
+      </MidiDivices>
+      <div>
+        <Button type="button" onClick={installReaSonus}>Install Reasonus</Button>
+      </div>
     </div>
   );
 };
