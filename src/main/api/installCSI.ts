@@ -34,7 +34,8 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
     ini = fs.readFileSync(path.join(iniDir, 'CSI.ini')).toString();
     ini += `${newLine}MidiSurface "Faderport 8" %midiIn% %midiOut% "FP8.mst" "Reasonus-Faderport8" 8 8 8 0 ${newLine}`;
   }
-  ini.replace('%midiIn%', midiInput).replace('%midiOut%', midiOutput);
+  ini = ini.replace('%midiIn%', midiInput);
+  ini = ini.replace('%midiOut%', midiOutput);
   fs.writeFileSync(path.join(iniDir, 'CSI.ini'), ini);
   
   if (os.platform() === 'darwin') {

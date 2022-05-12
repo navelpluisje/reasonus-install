@@ -7,6 +7,7 @@ import { FunctionActions } from '../types';
 interface AppSettings {
   reaperPath: string;
   dummyAction: string;
+  resourceVersion: string;
   functionActions: FunctionActions;
 }
 

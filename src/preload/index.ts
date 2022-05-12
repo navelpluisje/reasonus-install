@@ -11,7 +11,7 @@ contextBridge.exposeInMainWorld('reasonusAPI', {
   getOS: () => ipcRenderer.invoke('global:getOS'),
   getReaperPath: () => ipcRenderer.invoke('settings:getReaperPath'),
   goToExternal: (url: string) => ipcRenderer.invoke('navigate:goTo', url),
-  installActions: () => ipcRenderer.invoke('reasonus:installActions'),
+  installActions: (midiInput: string, midiOutpput: string) => ipcRenderer.invoke('reasonus:installActions', midiInput, midiOutpput),
   installReaSonus: () => ipcRenderer.invoke('reasonus:install'),
   saveFunctionActions: (functionActions: FunctionActions) => ipcRenderer.invoke('reasonus:saveFunctionActions', functionActions),
   selectFolder: () => ipcRenderer.invoke('dialog:openDirectory'),
