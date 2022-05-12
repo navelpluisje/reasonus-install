@@ -24,10 +24,10 @@ export const registerAction = (action: Action) => {
     if (actionAlreadyRegistered(actionPath, lines)) {
       return false;
     }
-    lines.filter((line) => line.length > 5);
-    lines.push(`SCR 4 0 REASONUS_${action.displayName.toUpperCase().replace(/\s/g, '_')} "Reasonus: ${action.displayName}" "Reasonus/${action.fileName}"`);
+    const filteredLines = lines.filter((line) => line.length > 5);
+    filteredLines.push(`SCR 4 0 REASONUS_${action.displayName.toUpperCase().replace(/\s/g, '_')} "Reasonus: ${action.displayName}" "Reasonus/${action.fileName}"`);
 
-    fs.writeFileSync(path.join(reaperPath, 'reaper-kb.ini'), lines.join(newLine));
+    fs.writeFileSync(path.join(reaperPath, 'reaper-kb.ini'), filteredLines.join(newLine));
 
     return true;
   } catch (e) {

@@ -43,6 +43,7 @@ jobs:
   build:
     # needs: test
     name: Build (${{ matrix.os }} - ${{ matrix.arch }})
+    if: startsWith(github.ref, 'refs/tags/')
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
