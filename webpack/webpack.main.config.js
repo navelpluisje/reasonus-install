@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+require('dotenv').config();
 
 module.exports = {
   /**
@@ -15,25 +16,17 @@ module.exports = {
   module: {
     rules: require('./webpack.rules.js'),
   },
-
-  
   output: {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
     path: path.resolve(__dirname, '../.webpack', 'main'),
   },
   plugins: [
-    // new CopyWebpackPlugin({patterns: [
-    //   {
-    //     from: path.resolve(__dirname, '../resources' ),
-    //     to: path.resolve(
-    //       __dirname, '../.webpack', 'main',  'resources',
-    //     ),
-    //   },
-    // ]}),
-
+    new webpack.EnvironmentPlugin({
+      __GITHUB_AUTH_TOKEN__: process.env.GH_API_TOKEN,
+    }),
   ],
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.json'],
   },
-};
+}; 

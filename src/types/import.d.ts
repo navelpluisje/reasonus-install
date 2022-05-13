@@ -12,3 +12,5 @@ declare module '*.woff2' {
   const content: string;
   export default content;
 }
+
+declare const __GITHUB_AUTH_TOKEN__: string;

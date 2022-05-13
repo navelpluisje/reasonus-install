@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+import { Octokit } from '@octokit/rest';
 import download from 'download';
 import { app } from 'electron';
 import fs from 'fs';
@@ -6,18 +8,29 @@ import path from 'path';
 
 import { settings } from '../../utils/settings';
 
+const octokit = new Octokit({
+  auth: process.env.__GITHUB_AUTH_TOKEN__,
+});
+
 export const downloadFiles = async () => {
   const userDataPath = app.getPath('userData');
-  // const latestRelease = await download('https://api.github.com/repos/navelpluisje/reasonus-faderport/releases/latest');
-  // const releaseJson = JSON.parse(latestRelease.toString());
+  const resourceVersion = settings.get('resourceVersion');
+  const latestRelease = await octokit.repos.getLatestRelease({
+    owner: 'navelpluisje',
+    repo: 'reasonus-faderport',
+  });
+
+  if (resourceVersion === latestRelease.data.tag_name) {
+    return;
+  }
 
   try {
-    await download('https://github.com/navelpluisje/reasonus-faderport/releases/download/v0.0.1-alpha-4/reasonus-faderport.zip', 
+    await download(latestRelease.data.assets[0].browser_download_url,
       path.join(userDataPath, 'resources'),
       {
         extract: true,
       });
-    settings.set('resourceVersion', 'v0.0.1-alpha-4');
+    settings.set('resourceVersion', latestRelease.data.tag_name);
   } catch (e) {
     console.log('Error while downloading', e);
   }
