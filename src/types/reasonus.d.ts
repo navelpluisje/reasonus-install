@@ -17,6 +17,7 @@ export declare global {
       downloadFiles: () => Promise<viod>
       getInitialReaperPath: () => Promise<string>
       getMidiDevices: () => Promise<MidiDevices>
+      getVersionNumber: (version: string) => Promise<string>
     };
 	}
 }

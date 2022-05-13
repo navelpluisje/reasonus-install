@@ -11,6 +11,7 @@ import { getFunctionActions } from './api/getFunctionActions';
 import { getInitialReaperDirectory } from './api/getInitialReaperDirectory';
 import { getMidiDevices } from './api/getMidiDevices';
 import { getReaperDirectory } from './api/getReaperDirectory';
+import { getVersionNumber } from './api/getVersionNumber';
 import { installActions } from './api/installActions';
 import { installCSI } from './api/installCSI';
 import { installReasonus } from './api/installReaSonus';
@@ -75,6 +76,7 @@ ipcMain.handle('settings:setReaperPath', (_, path: string) => {
 ipcMain.handle('settings:getReaperPath', () => settings.get('reaperPath'));
 ipcMain.handle('settings:getDummyAction', () => settings.get('dummyAction'));
 ipcMain.handle('settings:getFunctionActions', () => settings.get('functionActions'));
+ipcMain.handle('settings:getVersionNumber', (_, version: string) => getVersionNumber(version));
 
 ipcMain.handle('global:getOS', os.platform);
 ipcMain.handle('global:downloadFiles', downloadFiles);

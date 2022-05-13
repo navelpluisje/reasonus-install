@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { Columns } from '../components/atoms/Columns';
 import { ContentHeader } from '../components/atoms/ContentHeader';
 import { ExternalLink } from '../components/molecules/ExternalLink';
+import { VersionItem } from '../components/molecules/VersionItem';
 
 export const About: React.FC = () => (
   <>
@@ -13,12 +15,23 @@ export const About: React.FC = () => (
       <p>I work on ReaSonus in my spare time and is Open Source, so if you want to, feel free to add code.</p>
       <p>You may also donate if you appreciate this project. 
         Because I make an extensive use of CSI, half of the donations will go to Geoff.</p>
-      <h2>Links</h2>
-      <ul>
-        <li><ExternalLink to="https://navelpluisje.github.io/reasonus-faderport/">Documentation</ExternalLink></li>
-        <li><ExternalLink to="https://www.buymeacoffee.com/navelpluisje">Donate</ExternalLink></li>
-        <li><ExternalLink to="https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki">CSI Project</ExternalLink></li>
-      </ul>
+      <Columns>
+        <div>
+          <h2>Links</h2>
+          <ul>
+            <li><ExternalLink to="https://navelpluisje.github.io/reasonus-faderport/">Documentation</ExternalLink></li>
+            <li><ExternalLink to="https://www.buymeacoffee.com/navelpluisje">Donate</ExternalLink></li>
+            <li><ExternalLink to="https://github.com/GeoffAWaddington/reaper_csurf_integrator/wiki">CSI Project</ExternalLink></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Versions</h2>
+          <section>
+            <VersionItem version='reasonus' />
+            <VersionItem version='csi' />
+          </section>
+        </div>
+      </Columns>
     </div>
   </>
 );

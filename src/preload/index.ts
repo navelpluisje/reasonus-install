@@ -10,6 +10,7 @@ contextBridge.exposeInMainWorld('reasonusAPI', {
   getMidiDevices: () => ipcRenderer.invoke('reasonus:getMidiDevices'),
   getOS: () => ipcRenderer.invoke('global:getOS'),
   getReaperPath: () => ipcRenderer.invoke('settings:getReaperPath'),
+  getVersionNumber: (version: string) => ipcRenderer.invoke('settings:getVersionNumber', version),
   goToExternal: (url: string) => ipcRenderer.invoke('navigate:goTo', url),
   installActions: (midiInput: string, midiOutpput: string) => ipcRenderer.invoke('reasonus:installActions', midiInput, midiOutpput),
   installReaSonus: () => ipcRenderer.invoke('reasonus:install'),
