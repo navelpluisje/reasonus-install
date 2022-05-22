@@ -13,7 +13,16 @@ const regex = /FP(8|16)/;
 export const installCSI = (midiInput: string, midiOutput: string) => {
   let fileName = '';
   const midiDevices = getMidiDevices();
-  const deviceName = midiDevices.in.find(((device) => device.id === midiInput)).fullName;
+  let deviceName: string;
+
+  if (os.platform() === 'darwin') {
+    deviceName = midiDevices.in.find(((device) => device.id === midiInput)).fullName;
+    fileName = 'reaper_csurf_integrator.dylib';
+  } else {
+    deviceName = midiDevices.in.find(((device) => device.id === midiInput)).name;
+    fileName = 'reaper_csurf_integrator.dll';
+  }
+  
   const ports = regex.exec(deviceName)[1] || '8';
 
   const userDataPath = app.getPath('userData');
@@ -46,13 +55,6 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
   
   fs.writeFileSync(path.join(iniDir, 'CSI.ini'), ini);
   
-  if (os.platform() === 'darwin') {
-    fileName = 'reaper_csurf_integrator.dylib';
-  }
-  if (os.platform() === 'win32') {
-    fileName = 'reaper_csurf_integrator.dll';
-  }
-
   if (fileName === '') {
     console.error(`Platform: ${os.platform()} is not supported`);
     return false;

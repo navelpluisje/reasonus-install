@@ -30,26 +30,21 @@ const faderPortZoneFiles = [
   'FP8_Transport.zon',
 ];
 
-export const installReasonus = () => {
+export const installReaSonus = () => {
   const actionId = '_REASONUS_ALWAYS_ON';
   const userDataPath = app.getPath('userData');
   const reaperPath = settings.get('reaperPath') as string;
+  const surfacePath = path.join(
+    userDataPath, 'resources', 'CSI', 'Surfaces', 'Midi',
+  );
+  const surfaceDest = path.join(
+    reaperPath,  'CSI', 'Surfaces', 'Midi',
+  );
 
   // Copy the surface file
-  copyFile(path.join(
-    userDataPath, 'resources', 'CSI', 'Surfaces', 'Midi',
-  ),
-  path.join(
-    reaperPath, 'CSI', 'Surfaces', 'Midi',
-  ),
-  'FP8.mst');
-  copyFile(path.join(
-    userDataPath, 'resources', 'CSI', 'Surfaces', 'Midi',
-  ),
-  path.join(
-    reaperPath, 'CSI', 'Surfaces', 'Midi',
-  ),
-  'FP16.mst');
+  copyFile(surfacePath, surfaceDest, 'FP8.mst');
+
+  copyFile(surfacePath, surfaceDest, 'FP16.mst');
 
   // Modify the files with the always on action
   for (const zoneFile of faderPortZoneFiles) {
