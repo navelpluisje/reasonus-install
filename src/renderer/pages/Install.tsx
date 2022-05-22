@@ -2,6 +2,7 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { MidiDevices } from '../../main/api/getMidiDevices';
+import { wait } from '../../utils/wait';
 import faderport from '../assets/images/faderport8.png';
 import { Button } from '../components/atoms/Button';
 import { ContentHeader } from '../components/atoms/ContentHeader';
@@ -40,9 +41,10 @@ export const Install = () => {
       new Notification('Error while copying the actions');
     }
     await window.reasonusAPI.installReaSonus();
-    await new Promise(() => setTimeout(() => { setDone(true); }, 1500)).then(() => {
-      setTimeout(() => { navigate('/home'); }, 500);
-    });
+    await wait(1500);
+    setDone(true);
+    await wait(1000);
+    navigate('/home');
   }; 
 
   const handleMidiInputChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -57,7 +59,6 @@ export const Install = () => {
     <div>
       <>
         <ContentHeader>Prepare the FaderPort</ContentHeader>
-        {console.log({midiDevices})}
         {!done ? (
           <>
             <p>
