@@ -38,7 +38,7 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
     ini = fs.readFileSync(path.join(srcDir, 'CSI.ini')).toString();
   } else {
     ini = fs.readFileSync(path.join(iniDir, 'CSI.ini')).toString();
-    ini += `${newLine}MidiSurface "Faderport %ports%" %midiIn% %midiOut% "FP%ports%.mst" "Reasonus-Faderport8" %ports% %ports% %ports% 0 ${newLine}`;
+    ini += `${newLine}MidiSurface "Faderport %ports%" %midiIn% %midiOut% "FP%ports%.mst" "Reasonus-Faderport" %ports% %ports% %ports% 0 ${newLine}`;
   }
   ini = ini.replace('%midiIn%', midiInput);
   ini = ini.replace('%midiOut%', midiOutput);

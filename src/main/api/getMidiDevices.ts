@@ -1,4 +1,5 @@
 import fs from 'fs';
+import os from 'os';
 import path from 'path';
 
 import { getNewLineChar } from '../../utils/getNewLineChar';
@@ -15,12 +16,11 @@ const labels: Record<string, string> = {
 };
 
 const deviceFilter = (deviceName: string): boolean => {
-  const decviceNames = [
-    'Port 1',
-    'PreSonus FP',
-  ];
-
-  return decviceNames.some((name) => deviceName.indexOf(name) === 0);
+  if (os.platform() === 'darwin') {
+    return deviceName.indexOf('Port 1') === 0;
+  } else {
+    return deviceName.indexOf('PreSonus FP') === 0;
+  }
 };
 
 type MidiData = {

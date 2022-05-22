@@ -69,14 +69,14 @@ export const Install = () => {
                 {midiDevices?.in && midiDevices.in.length && (
                   <MidiSelect label="Midi in" id="midi-in" onChange={handleMidiInputChange} value={midiInput}>
                     {midiDevices.in.map((device) => (
-                      <option value={device.id} key={device.id}>{device.fullName}</option>
+                      <option value={device.id} key={device.id}>{device.fullName || device.name}</option>
                     ))}
                   </MidiSelect>
                 )}
                 {midiDevices?.out && midiDevices.out.length && (
                   <MidiSelect label="Midi out" id="midi-out" onChange={handleMidiOutputChange} value={midiOutput}>
                     {midiDevices.in.map((device) => (
-                      <option value={device.id} key={device.id}>{device.fullName}</option>
+                      <option value={device.id} key={device.id}>{device.fullName || device.name}</option>
                     ))}
                   </MidiSelect>
                 )}
