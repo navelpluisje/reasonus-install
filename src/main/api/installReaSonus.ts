@@ -43,6 +43,13 @@ export const installReasonus = () => {
     reaperPath, 'CSI', 'Surfaces', 'Midi',
   ),
   'FP8.mst');
+  copyFile(path.join(
+    userDataPath, 'resources', 'CSI', 'Surfaces', 'Midi',
+  ),
+  path.join(
+    reaperPath, 'CSI', 'Surfaces', 'Midi',
+  ),
+  'FP16.mst');
 
   // Modify the files with the always on action
   for (const zoneFile of faderPortZoneFiles) {

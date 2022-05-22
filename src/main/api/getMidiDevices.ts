@@ -14,6 +14,15 @@ const labels: Record<string, string> = {
   x: 'fullName',
 };
 
+const deviceFilter = (deviceName: string): boolean => {
+  const decviceNames = [
+    'Port 1',
+    'PreSonus FP',
+  ];
+
+  return decviceNames.some((name) => deviceName.indexOf(name) === 0);
+};
+
 type MidiData = {
   [io: string]: {
     [index: string]: MidiDevice
@@ -66,7 +75,7 @@ export const getMidiDevices = (): MidiDevices => {
   }, {} as MidiData);
 
   return {
-    in: Object.values(result.input).filter((device) => device.name === 'Port 1') as MidiDevice[],
-    out: Object.values(result.output).filter((device) => device.name === 'Port 1') as MidiDevice[],
+    in: Object.values(result.input).filter((device) => deviceFilter(device.name)) as MidiDevice[],
+    out: Object.values(result.output).filter((device) => deviceFilter(device.name)) as MidiDevice[],
   };
 };

@@ -1,4 +1,3 @@
-// import os from 'os';
 import styled from 'styled-components';
 
 export const SidebarContainer = styled.aside`

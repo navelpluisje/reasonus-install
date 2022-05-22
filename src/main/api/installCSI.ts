@@ -6,10 +6,16 @@ import path from 'path';
 import { copyFile } from '../../utils/copyFile';
 import { getNewLineChar } from '../../utils/getNewLineChar';
 import { settings } from '../../utils/settings';
+import { getMidiDevices } from './getMidiDevices';
 
+const regex = /FP(8|16)/;
 
 export const installCSI = (midiInput: string, midiOutput: string) => {
   let fileName = '';
+  const midiDevices = getMidiDevices();
+  const deviceName = midiDevices.in.find(((device) => device.id === midiInput)).fullName;
+  const ports = regex.exec(deviceName)[1] || '8';
+
   const userDataPath = app.getPath('userData');
   const newLine = getNewLineChar();
   const reaperPath = settings.get('reaperPath') as string;
@@ -32,10 +38,12 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
     ini = fs.readFileSync(path.join(srcDir, 'CSI.ini')).toString();
   } else {
     ini = fs.readFileSync(path.join(iniDir, 'CSI.ini')).toString();
-    ini += `${newLine}MidiSurface "Faderport 8" %midiIn% %midiOut% "FP8.mst" "Reasonus-Faderport8" 8 8 8 0 ${newLine}`;
+    ini += `${newLine}MidiSurface "Faderport %ports%" %midiIn% %midiOut% "FP%ports%.mst" "Reasonus-Faderport8" %ports% %ports% %ports% 0 ${newLine}`;
   }
   ini = ini.replace('%midiIn%', midiInput);
   ini = ini.replace('%midiOut%', midiOutput);
+  ini = ini.replace(/%ports%/g, ports);
+  
   fs.writeFileSync(path.join(iniDir, 'CSI.ini'), ini);
   
   if (os.platform() === 'darwin') {

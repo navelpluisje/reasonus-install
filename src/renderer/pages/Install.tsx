@@ -41,7 +41,7 @@ export const Install = () => {
     }
     await window.reasonusAPI.installReaSonus();
     await new Promise(() => setTimeout(() => { setDone(true); }, 1500)).then(() => {
-      setTimeout(() => { navigate('#/home'); }, 500);
+      setTimeout(() => { navigate('/home'); }, 500);
     });
   }; 
 
@@ -55,40 +55,43 @@ export const Install = () => {
 
   return (
     <div>
-      <ContentHeader>Prepare the FaderPort</ContentHeader>
-      {!done ? (
-        <>
-          <p>
+      <>
+        <ContentHeader>Prepare the FaderPort</ContentHeader>
+        {console.log({midiDevices})}
+        {!done ? (
+          <>
+            <p>
             We made the install of the FaderPort as easy as possible. The only thing you have to do is check if we selected the correct midi device for you. 
             If there's only one, your lucky. Are there more, select you midi devices below (we only show you the available FaderPorts).
-          </p>
-          <MidiDivices>
-            <span>
-              {midiDevices?.in && midiDevices.in.length && (
-                <MidiSelect label="Midi in" id="midi-in" onChange={handleMidiInputChange} value={midiInput}>
-                  {midiDevices.in.map((device) => (
-                    <option value={device.id} key={device.id}>{device.fullName}</option>
-                  ))}
-                </MidiSelect>
-              )}
-              {midiDevices?.out && midiDevices.out.length && (
-                <MidiSelect label="Midi out" id="midi-out" onChange={handleMidiOutputChange} value={midiOutput}>
-                  {midiDevices.in.map((device) => (
-                    <option value={device.id} key={device.id}>{device.fullName}</option>
-                  ))}
-                </MidiSelect>
-              )}
-            </span>
-            <img style={{maxHeight: '20rem', maxWidth:'75%'}} src={faderport} />
+            </p>
+            <MidiDivices>
+              <span>
+                {midiDevices?.in && midiDevices.in.length && (
+                  <MidiSelect label="Midi in" id="midi-in" onChange={handleMidiInputChange} value={midiInput}>
+                    {midiDevices.in.map((device) => (
+                      <option value={device.id} key={device.id}>{device.fullName}</option>
+                    ))}
+                  </MidiSelect>
+                )}
+                {midiDevices?.out && midiDevices.out.length && (
+                  <MidiSelect label="Midi out" id="midi-out" onChange={handleMidiOutputChange} value={midiOutput}>
+                    {midiDevices.in.map((device) => (
+                      <option value={device.id} key={device.id}>{device.fullName}</option>
+                    ))}
+                  </MidiSelect>
+                )}
+              </span>
+              <img style={{maxHeight: '20rem', maxWidth:'75%'}} src={faderport} />
 
-          </MidiDivices>
-          <div>
-            <Button type="button" onClick={installReaSonus} disabled={installing}>Install Reasonus</Button>
-          </div>
-        </>
-      ) : (
-        <div>Done </div>
-      )}
+            </MidiDivices>
+            <div>
+              <Button type="button" onClick={installReaSonus} disabled={installing}>Install Reasonus</Button>
+            </div>
+          </>
+        ) : (
+          <div>Done </div>
+        )}
+      </>
     </div>
   );
 };
