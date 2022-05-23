@@ -31,29 +31,32 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
 
   const srcDir = path.join(userDataPath, 'resources', 'Csurf');
   const pluginDir = path.join(reaperPath, 'UserPlugins');
-  const iniDir = path.join(reaperPath, 'CSI');
+  const csiDir = path.join(reaperPath, 'CSI');
 
   if (!fs.existsSync(pluginDir)) {
     fs.mkdirSync(pluginDir);
   }
 
-  if (!fs.existsSync(iniDir)) {
-    fs.mkdirSync(path.join(iniDir, 'Surfaces', 'Midi'), { recursive: true });
-    fs.mkdirSync(path.join(iniDir, 'Zones', 'Reasonus-FaderPort'), { recursive: true });
+  if (!fs.existsSync(csiDir)) {
+    fs.mkdirSync(csiDir);
+    fs.mkdirSync(path.join(csiDir, 'Surfaces'));
+    fs.mkdirSync(path.join(csiDir, 'Surfaces', 'Midi'));
+    fs.mkdirSync(path.join(csiDir, 'Zones'));
+    fs.mkdirSync(path.join(csiDir, 'Zones', 'ReasonusFaderPort'));
   }
 
   let ini: string;
-  if (!fs.existsSync(path.join(iniDir, 'CSI.ini'))) {
+  if (!fs.existsSync(path.join(csiDir, 'CSI.ini'))) {
     ini = fs.readFileSync(path.join(srcDir, 'CSI.ini')).toString();
   } else {
-    ini = fs.readFileSync(path.join(iniDir, 'CSI.ini')).toString();
-    ini += `${newLine}MidiSurface "Faderport %ports%" %midiIn% %midiOut% "FP%ports%.mst" "Reasonus-Faderport" %ports% %ports% %ports% 0 ${newLine}`;
+    ini = fs.readFileSync(path.join(csiDir, 'CSI.ini')).toString();
+    ini += `${newLine}MidiSurface "Faderport %ports%" %midiIn% %midiOut% "FP%ports%.mst" "ReasonusFaderport" %ports% %ports% %ports% 0 ${newLine}`;
   }
   ini = ini.replace('%midiIn%', midiInput);
   ini = ini.replace('%midiOut%', midiOutput);
   ini = ini.replace(/%ports%/g, ports);
   
-  fs.writeFileSync(path.join(iniDir, 'CSI.ini'), ini);
+  fs.writeFileSync(path.join(csiDir, 'CSI.ini'), ini);
   
   if (fileName === '') {
     console.error(`Platform: ${os.platform()} is not supported`);

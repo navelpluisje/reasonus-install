@@ -14,8 +14,12 @@ export const registerAction = (action: Action) => {
   const reaperPath = settings.get('reaperPath') as string;
 
   try {
-    const reaperKbIni = fs.readFileSync(path.join(reaperPath, 'reaper-kb.ini')).toString();
-    const lines = reaperKbIni.split(newLine);
+    let  reaperKbIni = '';
+    let lines: string[] = [];
+    if (fs.existsSync(path.join(reaperPath, 'reaper-kb.ini'))) {
+      reaperKbIni = fs.readFileSync(path.join(reaperPath, 'reaper-kb.ini')).toString();
+      lines = reaperKbIni.split(newLine);
+    }
 
     if (actionAlreadyRegistered(`Reasonus/${action.fileName}`, lines)) {
       return false;
