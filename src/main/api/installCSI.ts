@@ -4,9 +4,10 @@ import os from 'os';
 import path from 'path';
 
 import { copyFile } from '../../utils/copyFile';
-import { getNewLineChar } from '../../utils/getNewLineChar';
 import { settings } from '../../utils/settings';
 import { getMidiDevices } from './getMidiDevices';
+import { addCsiToReaperIni } from './utils/addCsiToReaperIni';
+import { handleSciIni } from './utils/handleCsiIni';
 
 const regex = /FP(8|16)/;
 
@@ -22,11 +23,14 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
     deviceName = midiDevices.in.find(((device) => device.id === midiInput)).name;
     fileName = 'reaper_csurf_integrator.dll';
   }
-  
-  const ports = regex.exec(deviceName)[1] || '8';
 
+  if (fileName === '') {
+    console.error(`Platform: ${os.platform()} is not supported`);
+    return false;
+  }
+
+  const ports = (regex.exec(deviceName)[1] || '8') as '8' | '16';
   const userDataPath = app.getPath('userData');
-  const newLine = getNewLineChar();
   const reaperPath = settings.get('reaperPath') as string;
 
   const srcDir = path.join(userDataPath, 'resources', 'Csurf');
@@ -45,22 +49,10 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
     fs.mkdirSync(path.join(csiDir, 'Zones', 'ReasonusFaderPort'));
   }
 
-  let ini: string;
-  if (!fs.existsSync(path.join(csiDir, 'CSI.ini'))) {
-    ini = fs.readFileSync(path.join(srcDir, 'CSI.ini')).toString();
-  } else {
-    ini = fs.readFileSync(path.join(csiDir, 'CSI.ini')).toString();
-    ini += `${newLine}MidiSurface "Faderport %ports%" %midiIn% %midiOut% "FP%ports%.mst" "ReasonusFaderport" %ports% %ports% %ports% 0 ${newLine}`;
-  }
-  ini = ini.replace('%midiIn%', midiInput);
-  ini = ini.replace('%midiOut%', midiOutput);
-  ini = ini.replace(/%ports%/g, ports);
-  
-  fs.writeFileSync(path.join(csiDir, 'CSI.ini'), ini);
-  
-  if (fileName === '') {
-    console.error(`Platform: ${os.platform()} is not supported`);
-    return false;
+  if (handleSciIni(
+    ports, csiDir, srcDir, midiInput, midiOutput,
+  )) {
+    addCsiToReaperIni();
   }
   
   copyFile(srcDir, pluginDir, fileName);

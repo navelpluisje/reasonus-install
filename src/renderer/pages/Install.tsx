@@ -16,6 +16,7 @@ export const Install = () => {
   const [midiOutput, setMidiOutput] = useState('0');
   const [done, setDone] = useState(false);
   const [installing, setInstalling] = useState(false);
+  const [disableInstall, setDisableInstall] = useState(true);
 
   useEffect(() => {
     const getActionId = async () => {
@@ -34,6 +35,12 @@ export const Install = () => {
       setMidiOutput(midiDevices.out[0].id);
     }
   }, [midiDevices]);
+
+  useEffect(() => {
+    if (midiDevices?.in && midiDevices.in.length && midiDevices?.out && midiDevices.out.length) {
+      setDisableInstall(installing);
+    }
+  }, [midiDevices, installing]);
 
   const installReaSonus = async () => {
     setInstalling(true);
@@ -86,7 +93,7 @@ export const Install = () => {
 
             </MidiDivices>
             <div>
-              <Button type="button" onClick={installReaSonus} disabled={installing}>Install Reasonus</Button>
+              <Button type="button" onClick={installReaSonus} disabled={disableInstall}>Install Reasonus</Button>
             </div>
           </>
         ) : (

@@ -49,13 +49,13 @@ export const installReaSonus = () => {
   // Modify the files with the always on action
   for (const zoneFile of faderPortZoneFiles) {
     const fileName = path.join(
-      userDataPath, 'resources', 'CSI', 'Zones', 'Reasonus-FaderPort', zoneFile,
+      userDataPath, 'resources', 'CSI', 'Zones', 'ReasonusFaderPort', zoneFile,
     );
     if (!fs.existsSync(fileName)) {
       continue;
     }
     const destFileName = path.join(
-      reaperPath, 'CSI', 'Zones', 'Reasonus-FaderPort', zoneFile,
+      reaperPath, 'CSI', 'Zones', 'ReasonusFaderPort', zoneFile,
     );
     const content = fs.readFileSync(fileName).toString();
     fs.writeFileSync(destFileName, content.replace(/%dummyAction%/g, actionId));

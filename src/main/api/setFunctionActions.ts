@@ -10,7 +10,7 @@ const regexLine = /.*Reaper\s*([_0-9a-zA-Z]*)/;
 export const setFunctionActions = (functionActions: FunctionActions) => {
   const reaperPath = settings.get('reaperPath') as string;
   const filePath = path.join(
-    reaperPath, 'CSI', 'Zones', 'Reasonus-FaderPort', 'FP8_Navigators.zon',
+    reaperPath, 'CSI', 'Zones', 'ReasonusFaderPort', 'FP8_Navigators.zon',
   );
 
   try {
