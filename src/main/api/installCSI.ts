@@ -3,6 +3,7 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 
+import { PortCount } from '../../types';
 import { copyFile } from '../../utils/copyFile';
 import { settings } from '../../utils/settings';
 import { getMidiDevices } from './getMidiDevices';
@@ -29,7 +30,7 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
     return false;
   }
 
-  const ports = (regex.exec(deviceName)[1] || '8') as '8' | '16';
+  const ports = (regex.exec(deviceName)[1] || '8') as PortCount;
   const userDataPath = app.getPath('userData');
   const reaperPath = settings.get('reaperPath') as string;
 
@@ -37,6 +38,8 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
   const pluginDir = path.join(reaperPath, 'UserPlugins');
   const csiDir = path.join(reaperPath, 'CSI');
 
+  settings.set('nbChannels', ports);
+  
   if (!fs.existsSync(pluginDir)) {
     fs.mkdirSync(pluginDir);
   }

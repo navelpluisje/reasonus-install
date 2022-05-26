@@ -19,23 +19,6 @@ module.exports = {
       platforms: ['win32'],     
     },
     {
-      config: {
-        additionalDMGOptions:{
-          window: {
-            size: {
-              height: 490,
-              width: 650,
-            },
-          },
-        },
-        background: path.resolve(__dirname, 'assets', 'dmg-background.png'),
-        format: 'ULFO',
-        icon: path.resolve(__dirname, 'assets', 'app-icon.icns'),
-        name: 'ReaSonus',
-      },
-      name: '@electron-forge/maker-dmg',
-    },
-    {
       name: '@electron-forge/maker-zip',
       platforms: [
         'darwin',

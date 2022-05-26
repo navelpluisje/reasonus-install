@@ -4,6 +4,8 @@ export type FunctionActions = {
   [functionKey in FunctionKeys]: string;
 }
 
+export type PortCount = '8' | '16';
+
 export interface Action {
   fileName: string;
   displayName: string;
