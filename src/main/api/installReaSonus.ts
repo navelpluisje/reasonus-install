@@ -11,6 +11,7 @@ const universalFiles = [
   'FP8_FX.zon',
   'FP8_FXSlot.zon',
   'FP8_Home.zon',
+  'FP8_Channel.zon',
   'FP8_MixManagement.zon',
   'FP8_NavigatorChannel.zon',
   'FP8_NavigatorMarker.zon',
