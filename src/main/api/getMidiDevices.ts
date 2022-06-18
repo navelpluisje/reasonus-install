@@ -17,7 +17,10 @@ const labels: Record<string, string> = {
 
 const deviceFilter = (deviceName: string): boolean => {
   if (os.platform() === 'darwin') {
-    return deviceName.indexOf('Port 1') === 0;
+    if (deviceName.indexOf('Port 1') === 0) {
+      return true; 
+    }
+    return deviceName.indexOf('PreSonus FP2') === 0;
   } else {
     return deviceName.indexOf('PreSonus FP') === 0;
   }

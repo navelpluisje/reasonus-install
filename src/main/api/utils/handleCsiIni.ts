@@ -6,7 +6,7 @@ import { getNewLineChar } from '../../../utils/getNewLineChar';
 const csiLineRegex = /MidiSurface\s".*"\s(?<midiIn>[0-9]{1,2})\s(?<midiOut>[0-9]{1,2})\s.*\s([0-9]{1,2})\s([0-9]{1,2})\s([0-9]{1,2})\s([0-9]{1,2})/;
 
 export const handleSciIni = (
-  nbChannels: '8' | '16', 
+  nbChannels: '2' | '8' | '16', 
   csiDir: string, 
   srcDir: string, 
   midiInput: string, 
