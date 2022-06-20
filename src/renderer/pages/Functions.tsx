@@ -6,18 +6,25 @@ import { ContentHeader } from '../components/atoms/ContentHeader';
 import { FunctionList } from '../components/atoms/FunctionList';
 import { FunctionInput } from '../components/molecules/FuntionInput';
 
-const f = new Array(8).fill('');
 
 export const Functions: React.FC = () => {
-  const [actions, setActions] = useState(f);
+  // const [functions, setFunctions] = useState([]);
+  const [actions, setActions] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
+      const device = await window.reasonusAPI.getDevice();
+      console.log(device === 'FP2' ? 4 : 8);
+      const f = new Array(device === 'FP2' ? 4 : 8).fill('');
+      setActions(f);
+
       const baseActions = [...f];
       const functionActions = await window.reasonusAPI.getFunctionActions();
-      Object.entries(functionActions).forEach(([key, value]) => {
-        const index = parseInt(key[1], 10) - 1;
-        baseActions[index] = value;
+      Object.entries(functionActions).forEach(([key, value], index) => {
+        if (index < f.length) {
+          const index = parseInt(key[1], 10) - 1;
+          baseActions[index] = value;
+        }
       });
       setActions(baseActions);
     };

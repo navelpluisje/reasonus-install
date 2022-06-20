@@ -18,6 +18,7 @@ export declare global {
       getInitialReaperPath: () => Promise<string>
       getMidiDevices: () => Promise<MidiDevices>
       getVersionNumber: (version: string) => Promise<string>
+      getDevice: () => 'FP2' | 'FP8' | 'FP16'
     };
 	}
 }

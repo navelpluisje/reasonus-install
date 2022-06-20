@@ -77,6 +77,7 @@ ipcMain.handle('settings:getReaperPath', () => settings.get('reaperPath'));
 ipcMain.handle('settings:getDummyAction', () => settings.get('dummyAction'));
 ipcMain.handle('settings:getFunctionActions', () => settings.get('functionActions'));
 ipcMain.handle('settings:getVersionNumber', (_, version: string) => getVersionNumber(version));
+ipcMain.handle('settings:getDevice', () => `FP${settings.get('nbChannels')}`);
 
 ipcMain.handle('global:getOS', os.platform);
 ipcMain.handle('global:downloadFiles', downloadFiles);

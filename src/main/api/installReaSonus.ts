@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { copyFile } from '../../utils/copyFile';
+import { fileExists } from '../../utils/fileExists';
 import { settings } from '../../utils/settings';
 
 export const installReaSonus = () => {
@@ -34,7 +35,7 @@ export const installReaSonus = () => {
     copyFile(surfacePath, surfaceDest, 'FP8.mst');
     faderPortZoneFiles = zoneFilesList.FP8;
   } else {
-    copyFile(surfacePath, surfaceDest, 'FPv2.mst');
+    copyFile(surfacePath, surfaceDest, 'FP2.mst');
     faderPortZoneFiles = zoneFilesList.FP2;
   }
 
@@ -43,7 +44,7 @@ export const installReaSonus = () => {
    */
   for (const zoneFile of faderPortZoneFiles) {
     const fileName = path.join(userDataPath, zoneFile);
-    if (!fs.existsSync(fileName)) {
+    if (!fileExists(fileName)) {
       continue;
     }
     copyFile(zonesPath, zonesDest, zoneFile);
