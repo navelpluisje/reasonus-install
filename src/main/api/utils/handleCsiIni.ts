@@ -6,14 +6,16 @@ import { getNewLineChar } from '../../../utils/getNewLineChar';
 const csiLineRegex = /MidiSurface\s".*"\s(?<midiIn>[0-9]{1,2})\s(?<midiOut>[0-9]{1,2})\s.*\s([0-9]{1,2})\s([0-9]{1,2})\s([0-9]{1,2})\s([0-9]{1,2})/;
 
 export const handleSciIni = (
-  nbChannels: '2' | '8' | '16', 
+  channels: '2' | '8' | '16', 
   csiDir: string, 
   srcDir: string, 
   midiInput: string, 
   midiOutput: string,
 ) => {
   const newLine = getNewLineChar();
-  const newCsiLine = `MidiSurface "Faderport ${nbChannels}" ${midiInput} ${midiOutput} "FP${nbChannels}.mst" "ReasonusFaderPort" ${nbChannels} ${nbChannels} ${nbChannels} 0`;
+  const version = channels === '2' ? 'v2' : channels;
+  const nbChannels = channels === '2' ? '1' : channels;
+  const newCsiLine = `MidiSurface "Faderport ${version}" ${midiInput} ${midiOutput} "FP${channels}.mst" "ReasonusFaderPort" ${nbChannels} ${nbChannels} ${nbChannels} 0`;
 
   try {
     let ini: string;
