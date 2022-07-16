@@ -4,6 +4,7 @@ import { FunctionActions } from '../types';
 
 contextBridge.exposeInMainWorld('reasonusAPI', {
   downloadFiles: () => ipcRenderer.invoke('global:downloadFiles' ),
+  getDevice: () => ipcRenderer.invoke('settings:getDevice'),
   getDummyAction: () => ipcRenderer.invoke('settings:getDummyAction'),
   getFunctionActions: () => ipcRenderer.invoke('settings:getFunctionActions'),
   getInitialReaperPath: () => ipcRenderer.invoke('global:getInitialReaperPath'),

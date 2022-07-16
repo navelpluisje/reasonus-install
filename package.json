@@ -6,7 +6,7 @@
   "main": ".webpack/main",
   "scripts": {
     "start": "ELECTRON_IS_DEVS=true electron-forge start",
-    "package": "electron-forge package --arch=x64 --platform=win32",
+    "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "eslint --ext .ts,.tsx .",

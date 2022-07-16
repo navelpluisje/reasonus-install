@@ -11,7 +11,7 @@ import { getMidiDevices } from './getMidiDevices';
 import { addCsiToReaperIni } from './utils/addCsiToReaperIni';
 import { handleSciIni } from './utils/handleCsiIni';
 
-const regex = /FP(8|16)/;
+const regex = /FP(2|8|16)/;
 
 export const installCSI = (midiInput: string, midiOutput: string) => {
   let fileName = '';
@@ -31,7 +31,7 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
     return false;
   }
 
-  const ports = (regex.exec(deviceName)[1] || '8') as PortCount;
+  const channels = (regex.exec(deviceName)[1] || '8') as PortCount;
   const userDataPath = app.getPath('userData');
   const reaperPath = settings.get('reaperPath') as string;
 
@@ -39,7 +39,7 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
   const pluginDir = path.join(reaperPath, 'UserPlugins');
   const csiDir = path.join(reaperPath, 'CSI');
 
-  settings.set('nbChannels', ports);
+  settings.set('nbChannels', channels);
   
   createFolder(pluginDir);
   createFolder(csiDir);
@@ -49,7 +49,7 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
   createFolder(path.join(csiDir, 'Zones', 'ReasonusFaderPort'));
 
   if (handleSciIni(
-    ports, csiDir, srcDir, midiInput, midiOutput,
+    channels, csiDir, srcDir, midiInput, midiOutput,
   )) {
     addCsiToReaperIni();
   }

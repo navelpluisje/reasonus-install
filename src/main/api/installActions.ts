@@ -18,6 +18,7 @@ export const installActions = () => {
 
     for (const action of baseActions) {
       copyFile(srcDir, destDir, action.fileName);
+      
       if (action.register) {
         registerAction(action);
       }
