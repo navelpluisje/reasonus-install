@@ -5,6 +5,7 @@ import path from 'path';
 
 import { PortCount } from '../../types';
 import { copyFile } from '../../utils/copyFile';
+import { createFolder } from '../../utils/createFolder';
 import { settings } from '../../utils/settings';
 import { getMidiDevices } from './getMidiDevices';
 import { addCsiToReaperIni } from './utils/addCsiToReaperIni';
@@ -40,17 +41,12 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
 
   settings.set('nbChannels', channels);
   
-  if (!fs.existsSync(pluginDir)) {
-    fs.mkdirSync(pluginDir);
-  }
-
-  if (!fs.existsSync(csiDir)) {
-    fs.mkdirSync(csiDir);
-    fs.mkdirSync(path.join(csiDir, 'Surfaces'));
-    fs.mkdirSync(path.join(csiDir, 'Surfaces', 'Midi'));
-    fs.mkdirSync(path.join(csiDir, 'Zones'));
-    fs.mkdirSync(path.join(csiDir, 'Zones', 'ReasonusFaderPort'));
-  }
+  createFolder(pluginDir);
+  createFolder(csiDir);
+  createFolder(path.join(csiDir, 'Surfaces'));
+  createFolder(path.join(csiDir, 'Surfaces', 'Midi'));
+  createFolder(path.join(csiDir, 'Zones'));
+  createFolder(path.join(csiDir, 'Zones', 'ReasonusFaderPort'));
 
   if (handleSciIni(
     channels, csiDir, srcDir, midiInput, midiOutput,
