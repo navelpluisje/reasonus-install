@@ -1,8 +1,8 @@
 {
   "name": "reasonus-install",
   "productName": "reasonus-install",
-  "version": "1.0.0",
-  "description": "My Electron application description",
+  "version": "0.3.0",
+  "description": "Installer for the ReaSonus FaderPort files",
   "main": ".webpack/main",
   "scripts": {
     "start": "ELECTRON_IS_DEVS=true electron-forge start",
