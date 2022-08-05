@@ -6,6 +6,10 @@ import { copyFile } from '../../utils/copyFile';
 import { fileExists } from '../../utils/fileExists';
 import { settings } from '../../utils/settings';
 
+/**
+ * Install the surface file for the correct FaderPort version,
+ * install the zone files for the correct FaderPort version
+ */
 export const installReaSonus = () => {
   let faderPortZoneFiles: string[];
   const nbChannels = settings.get('nbChannels');
@@ -48,5 +52,17 @@ export const installReaSonus = () => {
       continue;
     }
     copyFile(zonesPath, zonesDest, zoneFile);
+  }
+
+  // TODO: Check if we need to do a migration
+
+  /**
+   * Cleaning up the zone files
+   */
+  const currentZoneFiles = fs.readdirSync(zonesDest);
+  for (const zoneFile of currentZoneFiles) {
+    if (!currentZoneFiles.includes(zoneFile)) {
+      fs.rmSync(path.join(zonesDest, zoneFile));
+    }
   }
 };

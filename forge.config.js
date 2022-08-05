@@ -34,6 +34,7 @@ module.exports = {
     },
   ],
   packagerConfig: {
+    appVersion: process.env.VERSION,
     asar: true,
     executableName: 'reasonus-faderport',
     icon: path.resolve(__dirname, 'assets',  'app-icon'),

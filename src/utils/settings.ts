@@ -2,13 +2,12 @@ import { app } from 'electron';
 import fs from 'fs';
 import path from 'path';
 
-import { FunctionActions, PortCount } from '../types';
+import { PortCount } from '../types';
 
 interface AppSettings {
   reaperPath: string;
   dummyAction: string;
   resourceVersion: string;
-  functionActions: FunctionActions;
   nbChannels: PortCount;
 }
 
