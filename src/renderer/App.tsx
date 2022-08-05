@@ -6,7 +6,6 @@ import { Page } from './components/atoms/Page';
 import { Sidebar } from './components/organisms/Sidebar';
 import { useCsiApi } from './hooks/useCsiApi';
 import { About } from './pages/About';
-import { Functions } from './pages/Functions';
 import { Home } from './pages/Home';
 import { Install } from './pages/Install';
 import { ReaperPath } from './pages/ReaperPath';
@@ -50,7 +49,6 @@ export const App = () => {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/install" element={<Install />} />
-          <Route path="/functions" element={<Functions />} />
           <Route path="/about" element={<About />} />
           {/* <Route path="*" element={<Home />} /> */}
         </Routes>
