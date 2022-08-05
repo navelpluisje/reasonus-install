@@ -15,7 +15,6 @@ module.exports = {
   plugins: [
     ...plugins,
     new webpack.EnvironmentPlugin({
-      __ISDEV__: process.env.ELECTRON_IS_DEVS,
       __VERSION__: process.env.VERSION,
     }),
   ],
