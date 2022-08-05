@@ -1,7 +1,7 @@
 {
   "name": "reasonus-install",
   "productName": "reasonus-install",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "Installer for the ReaSonus FaderPort files",
   "main": ".webpack/main",
   "scripts": {
