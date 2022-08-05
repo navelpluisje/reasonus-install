@@ -3,11 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { Version, VersionName, VersionNumber } from '../atoms/Version';
 
 interface Props {
-  version: 'reasonus' | 'csi';
+  version: 'reasonus' | 'csi' | 'installer';
 }
 
 const labels = {
   csi: 'CSI',
+  installer: 'ReaSonus Installer',
   reasonus: 'Reasonus Resources',
 };
 

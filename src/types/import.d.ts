@@ -14,3 +14,4 @@ declare module '*.woff2' {
 }
 
 declare const __GITHUB_AUTH_TOKEN__: string;
+declare const __VERSION__: string;
