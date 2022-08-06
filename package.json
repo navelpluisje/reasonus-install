@@ -15,7 +15,7 @@
     "version:patch": "npm version patch && npm run git:push",
     "version:minor": "npm version minor && npm run git:push",
     "version:major": "npm version major && npm run git:push",
-    "version:pre": "npm version prerelease && npm run git:push"
+    "version:beta": "npm version preminor"
   },
   "keywords": [],
   "author": {
