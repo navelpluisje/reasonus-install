@@ -23,7 +23,10 @@ export const unRegisterActions = (actionIds: string[]) => {
     }
 
     const filteredLines = lines.filter((line) => {
-      const regexpVal = line.match(/SCR 4 0 ([A-Z0-9_]) "Reasonus:/);
+      const regexpVal = line.match(/SCR 4 0 ([A-Z0-9_]*) "Reasonus:/);
+      if (regexpVal === null) {
+        return true;
+      }
       return actionIds.includes(regexpVal[1]);
     });
 

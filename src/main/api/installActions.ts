@@ -71,7 +71,7 @@ export const installActions = () => {
     const fileNames = scriptsFile.scripts.map((action) => action.fileName);
     const dirFileNames = fs.readdirSync(destDir);
     const assetFiles = fs.readdirSync(assetsDir);
-    
+
     // Unregister all actiopns not needed anymore
     if (!unRegisterActions(actionIds)) {
       throw Error('Error while unregistering actions');
