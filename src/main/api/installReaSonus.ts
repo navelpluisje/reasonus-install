@@ -61,7 +61,7 @@ export const installReaSonus = () => {
    */
   const currentZoneFiles = fs.readdirSync(zonesDest);
   for (const zoneFile of currentZoneFiles) {
-    if (!currentZoneFiles.includes(zoneFile)) {
+    if (!faderPortZoneFiles.includes(zoneFile)) {
       fs.rmSync(path.join(zonesDest, zoneFile));
     }
   }

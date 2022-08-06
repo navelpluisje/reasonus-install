@@ -79,13 +79,17 @@ export const installActions = () => {
     // Cleaning up the scripts
     dirFileNames.forEach((fileName) => {
       if (!fileNames.includes(fileName)) {
-        fs.rmSync(path.join(destDir, fileName));
+        if (fs.lstatSync(path.join(destDir, fileName)).isFile() ) {
+          fs.rmSync(path.join(destDir, fileName));
+        }
       }
     });
     // Cleaning up the assets
     assetFiles.forEach((fileName) => {
       if (!scriptsFile.assets.includes(fileName)) {
-        fs.rmSync(path.join(assetsDir, fileName));
+        if (fs.lstatSync(path.join(assetsDir, fileName)).isFile() ) {
+          fs.rmSync(path.join(assetsDir, fileName));
+        }
       }
     });
     return true;
