@@ -54,15 +54,15 @@ export const installReaSonus = () => {
     copyFile(zonesPath, zonesDest, zoneFile);
   }
 
-  // TODO: Check if we need to do a migration
-
   /**
    * Cleaning up the zone files
    */
   const currentZoneFiles = fs.readdirSync(zonesDest);
   for (const zoneFile of currentZoneFiles) {
     if (!faderPortZoneFiles.includes(zoneFile)) {
-      fs.rmSync(path.join(zonesDest, zoneFile));
+      if (fs.lstatSync(path.join(zonesDest, zoneFile)).isFile() ) {
+        fs.rmSync(path.join(zonesDest, zoneFile));
+      }
     }
   }
 };

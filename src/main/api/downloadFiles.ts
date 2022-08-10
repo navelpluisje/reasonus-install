@@ -25,7 +25,6 @@ export const downloadFiles = async () => {
       repo: 'reasonus-faderport',
     });
   } else {
-    console.log('by tag');
     release = await octokit.repos.getReleaseByTag({
       owner: 'navelpluisje',
       repo: 'reasonus-faderport',
