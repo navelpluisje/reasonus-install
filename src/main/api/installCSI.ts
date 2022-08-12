@@ -13,6 +13,13 @@ import { handleSciIni } from './utils/handleCsiIni';
 
 const regex = /FP(2|8|16)/;
 
+/**
+ * Handles the base installation for Reasonnus. Sets the values to the different REAPER ini files,
+ * creates the base folder structure and installs the csi plugin.
+ * @param midiInput The REAPER id of the midi input device
+ * @param midiOutput The REAPER id of the midi output device
+ * @returns 
+ */
 export const installCSI = (midiInput: string, midiOutput: string) => {
   let fileName = '';
   const midiDevices = getMidiDevices();

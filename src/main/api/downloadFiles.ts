@@ -13,24 +13,36 @@ const octokit = new Octokit({
 });
 
 export const downloadFiles = async () => {
+  const resourcesTag = process.env.__RESOURCES__;
   const userDataPath = app.getPath('userData');
   const resourceVersion = settings.get('resourceVersion');
-  const latestRelease = await octokit.repos.getLatestRelease({
-    owner: 'navelpluisje',
-    repo: 'reasonus-faderport',
-  });
+  let release;
+  
+  if (resourcesTag === 'latest') {
+    console.log('latest');
+    release = await octokit.repos.getLatestRelease({
+      owner: 'navelpluisje',
+      repo: 'reasonus-faderport',
+    });
+  } else {
+    release = await octokit.repos.getReleaseByTag({
+      owner: 'navelpluisje',
+      repo: 'reasonus-faderport',
+      tag: resourcesTag,
+    });    
+  }
 
-  if (resourceVersion === latestRelease.data.tag_name) {
+  if (resourceVersion === release.data.tag_name) {
     return;
   }
 
   try {
-    await download(latestRelease.data.assets[0].browser_download_url,
+    await download(release.data.assets[0].browser_download_url,
       path.join(userDataPath, 'resources'),
       {
         extract: true,
       });
-    settings.set('resourceVersion', latestRelease.data.tag_name);
+    settings.set('resourceVersion', release.data.tag_name);
   } catch (e) {
     console.log('Error while downloading', e);
   }

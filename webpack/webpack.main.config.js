@@ -24,6 +24,10 @@ module.exports = {
   plugins: [
     new webpack.EnvironmentPlugin({
       __GITHUB_AUTH_TOKEN__: process.env.GH_API_TOKEN,
+      __RESOURCES__: 
+        process.env.VERSION.indexOf('-') > 0 || process.env.ELECTRON_IS_DEVS === 'true' 
+          ? 'v0.1.0' 
+          : 'latest',
     }),
   ],
   resolve: {

@@ -9,10 +9,9 @@ module.exports = {
         exe: 'reasonus-faderport.exe',
         iconUrl:
             'https://raw.githubusercontent.com/navelpluisje/reasonus-install/main/assets/app-icon.ico',
-        // loadingGif: './assets/loading.gif',
         name: 'reasonus_faderport',
         noMsi: true,
-        setupExe: `reasonus-faderport-win32-${arch}-setup.exe`,
+        setupExe: `reasonus-faderport-win32-${arch}-${process.env.VERSION}-setup.exe`,
         setupIcon: path.resolve(__dirname, 'assets', 'app-icon.ico'),
       }),
       name: '@electron-forge/maker-squirrel',

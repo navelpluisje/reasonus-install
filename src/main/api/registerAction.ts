@@ -12,12 +12,13 @@ const actionAlreadyRegistered = (actionPath: string, lines: string[]) => (
 export const registerAction = (action: Action) => {
   const newLine = getNewLineChar();
   const reaperPath = settings.get('reaperPath') as string;
+  const reaperKbIniPath = path.join(reaperPath, 'reaper-kb.ini');
 
   try {
     let  reaperKbIni = '';
     let lines: string[] = [];
-    if (fs.existsSync(path.join(reaperPath, 'reaper-kb.ini'))) {
-      reaperKbIni = fs.readFileSync(path.join(reaperPath, 'reaper-kb.ini')).toString();
+    if (fs.existsSync(reaperKbIniPath)) {
+      reaperKbIni = fs.readFileSync(reaperKbIniPath).toString();
       lines = reaperKbIni.split(newLine);
     }
 
@@ -27,7 +28,7 @@ export const registerAction = (action: Action) => {
     const filteredLines = lines.filter((line) => line.length > 5);
     filteredLines.push(`SCR 4 0 ${action.actionId} "Reasonus: ${action.displayName}" "Reasonus/${action.fileName}"`);
 
-    fs.writeFileSync(path.join(reaperPath, 'reaper-kb.ini'), filteredLines.join(newLine));
+    fs.writeFileSync(reaperKbIniPath, filteredLines.join(newLine));
     return true;
   } catch (e) {
     return false;

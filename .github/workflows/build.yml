@@ -36,6 +36,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_API_TOKEN: ${{ secrets.GH_API_TOKEN }}
+          VERSION: ${{ github.ref_name }}          
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:

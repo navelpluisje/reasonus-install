@@ -27,6 +27,7 @@ export const About: React.FC = () => (
         <div>
           <h2>Versions</h2>
           <section>
+            <VersionItem version='installer' />
             <VersionItem version='reasonus' />
             <VersionItem version='csi' />
           </section>
