@@ -34,9 +34,11 @@ export const installReaSonus = () => {
    */
   if (nbChannels === '16') {
     copyFile(surfacePath, surfaceDest, 'FP16.mst');
+    copyFile(surfacePath, surfaceDest, 'FP16-swapped-shift.mst');
     faderPortZoneFiles = zoneFilesList.FP16;
   } else if (nbChannels === '8') {
     copyFile(surfacePath, surfaceDest, 'FP8.mst');
+    copyFile(surfacePath, surfaceDest, 'FP8-swapped-shift.mst');
     faderPortZoneFiles = zoneFilesList.FP8;
   } else {
     copyFile(surfacePath, surfaceDest, 'FP2.mst');
