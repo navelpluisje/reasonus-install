@@ -15,7 +15,7 @@ const labels: Record<string, string> = {
   x: 'fullName',
 };
 
-const deviceFilter = (deviceName: string): boolean => {
+const deviceFilter = (deviceName = ''): boolean => {
   if (os.platform() === 'darwin') {
     if (deviceName.indexOf('Port 1') === 0) {
       return true; 
