@@ -4,17 +4,20 @@ import path from 'path';
 
 import { settings } from '../../../utils/settings';
 
-const cleanupUnusedCsiLines = (ini: any) => {
+const cleanupUnusedCsiLines = (ini: Record<string, any>) => {
   const regex = /^csurf_([0-9]{1,3})/;
   let modified = false;
 
   const maxIndex = parseInt(ini.REAPER.csurf_cnt, 10) - 1 || 0;
   const reaperIni =  Object.entries(ini.REAPER).reduce((acc, [key, value]) => {
     const match = key.match(regex);
+
     if (parseInt(match?.[1] || '0') > maxIndex) {
       return acc;
     }
+
     modified = true;
+    
     return {
       ...acc,
       [key]: value,
@@ -30,7 +33,6 @@ const cleanupUnusedCsiLines = (ini: any) => {
   }
   ;
 };
-
 
 export const addCsiToReaperIni = () => {
   const reaperPath = settings.get('reaperPath') as string;

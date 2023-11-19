@@ -5,7 +5,7 @@ import { getNewLineChar } from '../../utils/getNewLineChar';
 import { settings } from '../../utils/settings';
 
 /**
- * Unregister any action not available in th eprovided list
+ * Unregister any action not available in the provided list
  * 
  * @param actionIds string[]; Array of actionIds to keep
  * @returns boolean; True on success, false otherwise

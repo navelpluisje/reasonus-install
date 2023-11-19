@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const MidiDivices = styled.section`
+export const MidiDevices = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;

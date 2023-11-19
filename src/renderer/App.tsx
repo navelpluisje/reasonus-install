@@ -14,7 +14,7 @@ import { fetchReaperPath } from './store/settings/actions';
 import { getReaperPath } from './store/settings/selectors';
 
 export const App = () => {
-  const paths = ['/home', '/functions', '/about', '/install'];
+  const paths = ['/home', '/functions', '/about', '/install', '/path'];
   const location = useLocation();
   const dispatch = useAppDispatch();
   const reaperPath = useAppSelector(getReaperPath);
@@ -50,6 +50,7 @@ export const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/install" element={<Install />} />
           <Route path="/about" element={<About />} />
+          <Route path="/path" element={<ReaperPath />} />
           {/* <Route path="*" element={<Home />} /> */}
         </Routes>
         {!paths.includes(location.pathname) && (

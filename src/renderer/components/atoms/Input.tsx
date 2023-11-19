@@ -13,7 +13,7 @@ export const Input = styled.input<Props>`
   font-weight: 400;  
   padding: .5rem 1rem;
   position: relative;
-  width: ${({large}) => (large ? '30rem' : 'auto')};
+  width: ${({large}) => (large ? 'calc(100% - 2rem)' : 'auto')};
 
   &::placeholder {
     color: rgba(255, 255, 255, .75);

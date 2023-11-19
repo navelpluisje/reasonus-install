@@ -6,7 +6,7 @@ export const getVersionNumber = (version: string) => {
       return process.env.VERSION || process.env.__VERSION__;
     
     case 'csi':
-      return '1.1 (reasonus-edition)';
+      return '3.0';
     
     case 'reasonus':
       return settings.get('resourceVersion');
