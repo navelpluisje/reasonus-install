@@ -46,12 +46,12 @@ type MidiDevice = {
   fullName: string,
 }
 
-export type MidiDevices = {
+export type MidiDevicesList = {
   in: MidiDevice[]
   out: MidiDevice[]
 }
 
-export const getMidiDevices = (): MidiDevices => {
+export const getMidiDevices = (): MidiDevicesList => {
   const newLine = getNewLineChar();
   const reaperPath = settings.get('reaperPath') as string;
   const midiFile = fs.readFileSync(path.join(reaperPath, 'reaper-midihw.ini')).toString();

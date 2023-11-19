@@ -5,6 +5,7 @@ import path from 'path';
 import { Action } from '../../types';
 import { copyFile } from '../../utils/copyFile';
 import { createFolder } from '../../utils/createFolder';
+import { log } from '../../utils/log';
 import { settings } from '../../utils/settings';
 import { registerAction } from './registerAction';
 import { unRegisterActions } from './unRegisterActions';
@@ -22,6 +23,7 @@ type ScriptsFile = {
  */
 // eslint-disable-next-line complexity
 export const installActions = () => {
+  log.info('installActions', 'started');
   const userDataPath = app.getPath('userData');
   const reaperPath = settings.get('reaperPath') as string;
   const srcDir = path.join(userDataPath, 'resources', 'Scripts');
@@ -33,13 +35,14 @@ export const installActions = () => {
 
   // First move the assets around
   try {
+    log.info('installActions', 'Installing the assets');
     createFolder(path.join(destDir, 'assets'));
 
     for (const asset of scriptsFile?.assets || []) {
       copyFile(path.join(srcDir, 'assets'), assetsDir, asset);
     }
   } catch (error) {
-    console.error('Error in installActions installing assets', error);
+    log.error('installActions', 'Error in installActions installing assets', error);
     return false;
   }
 
@@ -47,6 +50,7 @@ export const installActions = () => {
    * Copying all the files to the right folders
    */
   try {
+    log.info('installActions', 'Installing and registering scripts ');
     for (const action of scriptsFile.scripts) {
       if (!fs.existsSync(path.join(destDir, action.fileName)) || action.overwrite) {
         copyFile(srcDir, destDir, action.fileName);
@@ -58,7 +62,7 @@ export const installActions = () => {
     }
 
   } catch (error) {
-    console.error('Error in installActions', error);
+    log.error('installActions', 'Error in copying scripts or registering actions', error);
     return false;
   }
 
@@ -67,12 +71,13 @@ export const installActions = () => {
    * Cleaning up un-used files
    */
   try {
+    log.info('installActions', 'Cleaning up unused files');
     const actionIds = scriptsFile.scripts.map((action) => action.actionId);
     const fileNames = scriptsFile.scripts.map((action) => action.fileName);
     const dirFileNames = fs.readdirSync(destDir);
     const assetFiles = fs.readdirSync(assetsDir);
 
-    // Unregister all actiopns not needed anymore
+    // Unregister all actions not needed anymore
     if (!unRegisterActions(actionIds)) {
       throw Error('Error while unregistering actions');
     }  
@@ -90,11 +95,11 @@ export const installActions = () => {
         if (fs.lstatSync(path.join(assetsDir, fileName)).isFile() ) {
           fs.rmSync(path.join(assetsDir, fileName));
         }
-      }
+      } 
     });
     return true;
   } catch (error) {
-    console.error('Error in cleanupActions', error);
+    log.error('installActions', 'Error in cleanupActions', error);
     return false;
 
   }

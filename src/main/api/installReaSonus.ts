@@ -22,11 +22,9 @@ export const installReaSonus = () => {
     reaperPath,  'CSI', 'Surfaces', 'Midi',
   );
   const zonesPath = path.join(
-    userDataPath, 'resources', 'CSI', 'Zones', 'ReasonusFaderPort',
+    userDataPath, 'resources', 'CSI', 'Zones', 
   );
-  const zonesDest = path.join(
-    reaperPath,  'CSI', 'Zones', 'ReasonusFaderPort',
-  );
+  const zonesDest = path.join(reaperPath,  'CSI', 'Zones');
   const zoneFilesList: Record<string, string[]> = JSON.parse(fs.readFileSync(path.join(zonesPath, 'zonefiles.json')).toString());
 
   /**

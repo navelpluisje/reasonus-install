@@ -1,4 +1,4 @@
-export type PortCount = '8' | '16';
+export type PortCount = '2' | '8' | '16';
 
 export interface Action {
   fileName: string;

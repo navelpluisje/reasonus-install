@@ -19,7 +19,6 @@ export const downloadFiles = async () => {
   let release;
   
   if (resourcesTag === 'latest') {
-    console.log('latest');
     release = await octokit.repos.getLatestRelease({
       owner: 'navelpluisje',
       repo: 'reasonus-faderport',
