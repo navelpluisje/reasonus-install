@@ -33,7 +33,7 @@ export const installCSI = (midiInput: string, midiOutput: string) => {
       fileName = 'reaper_csurf_integrator.dylib';
     } else {
       deviceName = midiDevices.in.find(((device) => device.id === midiInput)).name;
-      fileName = 'reaper_csurf_integrator.dll';
+      fileName = 'reaper_csurf_integrator64.dll';
     }
   } catch (error) {
     log.error('installCSI', `Platform: ${os.platform()} is not supported`);
