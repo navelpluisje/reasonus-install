@@ -13,23 +13,25 @@ const octokit = new Octokit({
 });
 
 export const downloadFiles = async () => {
-  const resourcesTag = process.env.__RESOURCES__;
+  // const resourcesTag = process.env.__RESOURCES__;
   const userDataPath = app.getPath('userData');
   const resourceVersion = settings.get('resourceVersion');
-  let release;
+  // let release;
   
-  if (resourcesTag === 'latest') {
-    release = await octokit.repos.getLatestRelease({
-      owner: 'navelpluisje',
-      repo: 'reasonus-faderport',
-    });
-  } else {
-    release = await octokit.repos.getReleaseByTag({
-      owner: 'navelpluisje',
-      repo: 'reasonus-faderport',
-      tag: resourcesTag,
-    });    
-  }
+  // if (resourcesTag === 'latest') {
+  // if (resourcesTag === 'latest') {
+  //   release = await octokit.repos.getLatestRelease({
+  //     owner: 'navelpluisje',
+  //     repo: 'reasonus-faderport',
+  //   });
+  // } else {
+  const release = await octokit.repos.getReleaseByTag({
+    owner: 'navelpluisje',
+    repo: 'reasonus-faderport',
+    tag: 'v2.0.0-2',
+    // tag: resourcesTag,
+  });    
+  // }
 
   if (resourceVersion === release.data.tag_name) {
     return;
