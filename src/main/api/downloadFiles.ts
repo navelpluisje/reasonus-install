@@ -28,7 +28,7 @@ export const downloadFiles = async () => {
   const release = await octokit.repos.getReleaseByTag({
     owner: 'navelpluisje',
     repo: 'reasonus-faderport',
-    tag: 'v2.0.0-2',
+    tag: 'v2.0.0-3',
     // tag: resourcesTag,
   });    
   // }
